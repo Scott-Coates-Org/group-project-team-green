@@ -41,7 +41,7 @@ Try This
 
 ## Team Members Roll Call
 
-- [ ] Berke
+- [X] Berke
 - [ ] Emily
 - [ ] Umar
 - [ ] Jennifer
