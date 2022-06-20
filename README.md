@@ -44,7 +44,7 @@ Try This
 
 - [ ] Berke
 - [ ] Emily
-- [✔] Umar
+- [✅] Umar
 - [ ] Jennifer
 
 ## Sprint Progress
