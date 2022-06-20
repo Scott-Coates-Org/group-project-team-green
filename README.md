@@ -43,7 +43,7 @@ Try This
 ## Team Members Roll Call
 
 - [ ] Berke
-- [ ] Emily
+- [x] Emily
 - [✅] Umar
 - [ ] Jennifer
 
