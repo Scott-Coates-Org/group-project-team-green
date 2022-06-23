@@ -1,0 +1,29 @@
+.wrapper {
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images/homepage-background.png");
+    background-repeat: no-repeat;
+}
+
+.img {
+    width: 350px;
+    height: 250px;
+    margin: 5%;
+}
+
+.btn {
+    font-family:"Open Sans", sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.5em 0.5em;
+    background-color: #eceadb;
+}
+
+.btn:hover {
+    background-color: #ff3c54;
+}
