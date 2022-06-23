@@ -1,16 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from 'components/home';
-import { AuthProvider, useAuth } from 'components/user/auth';
-import Login from 'components/user/login';
-import Logout from 'components/user/logout';
-import { firebase } from 'firebase/client';
-import { createBrowserHistory } from 'history';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "components/home";
+import { AuthProvider, useAuth } from "components/user/auth";
+import Login from "components/user/login";
+import Logout from "components/user/logout";
+import { firebase } from "firebase/client";
+import { createBrowserHistory } from "history";
 import { useEffect } from "react";
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch } from "react-redux";
 import { Route, Router, Switch } from "react-router-dom";
-import store from 'redux/store';
-import { getData, getDataSuccess } from 'redux/user';
-import ErrorBoundary from 'components/error-boundary';
+import store from "redux/store";
+import { getData, getDataSuccess } from "redux/user";
+import ErrorBoundary from "components/error-boundary";
+import Admin from "./admin/dashboard";
 
 // DO NOT import BrowserRouter (as per tutorial). that caused router to not actually do anything.
 // see here: https://stackoverflow.com/questions/63554233/react-router-v5-history-push-changes-the-address-bar-but-does-not-change-the
@@ -37,10 +38,11 @@ function App() {
     dispatch(getData());
   }, []);
 
-  const storeUserData = user => {
+  const storeUserData = (user) => {
     const providerData = user.providerData[0];
+    user.admin && console.info("The user is admin!");
 
-    const userData = { ...providerData, uid: user.uid, };
+    const userData = { ...providerData, uid: user.uid };
 
     dispatch(getDataSuccess(userData));
   };
@@ -50,14 +52,24 @@ function App() {
       <AuthProvider onLogin={storeUserData}>
         <Router history={history}>
           <Switch>
-            <Route path="/login" render={(routeProps) => <Login {...routeProps} {...props} firebase={firebase} />} />
-            <Route path="/logout" render={(routeProps) => <Logout {...routeProps} {...props} firebase={firebase} />} />
+            <Route
+              path="/login"
+              render={(routeProps) => (
+                <Login {...routeProps} {...props} firebase={firebase} />
+              )}
+            />
+            <Route
+              path="/logout"
+              render={(routeProps) => (
+                <Logout {...routeProps} {...props} firebase={firebase} />
+              )}
+            />
 
             {/* this must be on the bottom */}
             <ProtectedRoute path="/" component={Home} {...props} />
           </Switch>
         </Router>
-      </AuthProvider >
+      </AuthProvider>
     </ErrorBoundary>
   );
 
@@ -74,7 +86,9 @@ const ProtectedRoute = ({ component, ...args }) => {
   });
 
   const retVal = (
-    <Route render={(routeProps) => <WrappedComponent {...routeProps} {...args} />} />
+    <Route
+      render={(routeProps) => <WrappedComponent {...routeProps} {...args} />}
+    />
   );
 
   return retVal;
@@ -84,40 +98,41 @@ const ProtectedRoute = ({ component, ...args }) => {
 // node_modules/@auth0/auth0-react/src/with-authentication-required.tsx
 function withAuthenticationRequired(Component, options) {
   return function WithAuthenticationRequired(props) {
-    const { isAuthenticated, isLoaded } = useAuth();
-
+    const { isAdminRoute = false } = props;
+    const { isAuthenticated, isLoaded, user } = useAuth();
     const {
       returnTo = defaultReturnTo,
       onRedirecting = defaultOnRedirecting,
       loginOptions = {},
     } = options;
 
-
     useEffect(async () => {
       let isAuthorized = false;
 
       if (isLoaded) {
-        isAuthorized = isAuthenticated;
+        isAuthorized = isAdminRoute ? !!user?.admin : isAuthenticated;
 
-        if (!isAuthorized) {
-          const opts = {
-            ...loginOptions,
-            appState: {
-              ...loginOptions.appState,
-              returnTo: typeof returnTo === 'function' ? returnTo() : returnTo,
-            },
-          };
+        const opts = {
+          ...loginOptions,
+          appState: {
+            ...loginOptions.appState,
+            returnTo: typeof returnTo === "function" ? returnTo() : returnTo,
+          },
+        };
 
-          history.push('/login', opts)
-        }
+        if (!isAuthenticated) history.push("/login", opts);
+        else if (!isAuthorized) history.push("/", opts);
       }
-
     }, [history, isAuthenticated, loginOptions, returnTo]);
 
+    // If authenticated,
+    // Is the route admin only?
+    // If route is admin only, is the user admin?
     return isAuthenticated ? <Component {...props} /> : onRedirecting();
   };
 }
 
-const defaultReturnTo = () => `${window.location.pathname}${window.location.search}`;
+const defaultReturnTo = () =>
+  `${window.location.pathname}${window.location.search}`;
 
 const defaultOnRedirecting = () => <></>;
