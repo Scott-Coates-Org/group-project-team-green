@@ -7,9 +7,9 @@
 }
 
 .img {
-    width: 350px;
-    height: 250px;
-    margin: 5%;
+    width: 25%;
+    height: 20%;
+    margin: 2.5%;
 }
 
 .btn {
@@ -25,5 +25,5 @@
 }
 
 .btn:hover {
-    background-color: #ff3c54;
+    background-color: #127c56;
 }

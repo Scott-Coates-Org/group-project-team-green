@@ -1,17 +1,26 @@
 import React from 'react'
-import { Wizard } from 'react-use-wizard';
-import StepOne from './StepOne';
-import StepTwo from './StepTwo';
-import StepThree from './StepThree';
-
+import WizardContainer from './wizard/WizardContainer';
+import Cart from './Cart';
+import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   return (
-    <Wizard >
-      <StepOne />
-      <StepTwo />
-      <StepThree />
-    </Wizard>
+    <div>
+      
+      <div className="d-flex justify-content-center vw-100 vh-100 bg-primary" >
+      <Link to="/">
+        <Button className="mt-4">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </Button>
+      </Link>
+        <WizardContainer />
+        <Cart />
+      </div>
+    </div>
+
   )
 }
 

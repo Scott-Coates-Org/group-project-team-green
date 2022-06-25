@@ -53,13 +53,13 @@ function LayoutNav(props) {
   const nav = (
     <div className="nav-wrapper border-bottom">
       <Navbar light expand="lg">
-        <NavbarBrand href="/">Trampoline Park</NavbarBrand>
+        <NavbarBrand href="/">Hopper</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar className="ml-auto">
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                <Avatar size={45} className="profile-image img-fluid rounded-circle mr-1" email={user.email} />
+                <Avatar size={35} className="profile-image img-fluid rounded-circle mr-1" email={user.email} />
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href="#">

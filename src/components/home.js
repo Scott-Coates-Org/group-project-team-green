@@ -49,12 +49,12 @@ export default function Home(props) {
     <Layout {...props}>
       <div className={homeStyles.wrapper}>
         <nav className="d-flex flex-column align-items-center">
-          <h1 className="my-3 text-center">Group Project</h1>
+          {/* <h1 className="my-3 text-center">Group Project</h1> */}
           <img src={logo} alt="Bounce House Logo" className={homeStyles.img} />
           <Link to="/customer/checkout">
             <Button className={homeStyles.btn}> Buy Pass </Button>
           </Link>
-          <section>
+          {/* <section>
           {!isLoaded && 'Widgets loading…'}
           {hasErrors && 'Error Loading'}
           {isLoaded &&
@@ -78,7 +78,7 @@ export default function Home(props) {
               <pre style={{width:"300px"}}>{JSON.stringify(data, null, 2)}</pre>
             </div>
           }
-        </section>
+        </section> */}
         </nav>
       </div>
 
