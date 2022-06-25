@@ -5,7 +5,7 @@ import PassSelection from '../steps/PassSelection';
 import AddOns from '../steps/AddOns';
 import ContactInfo from '../steps/ContactInfo';
 import Payment from '../steps/Payment';
-import WizardStyle from '../../../css/wizard-container.module.css'
+import WizardStyle from './wizard-container.module.css';
 
 const WizardContainer = () => {
     return (

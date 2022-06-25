@@ -1,5 +1,5 @@
 import React from 'react'
-import WizardStyle from '../../css/wizard-container.module.css'
+import WizardStyle from './wizard/wizard-container.module.css';
 
 const Cart = () => {
   return (

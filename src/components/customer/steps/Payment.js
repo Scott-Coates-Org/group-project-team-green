@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWizard } from 'react-use-wizard';
 import { Button } from 'reactstrap';
-import WizardStyle from '../../../css/wizard-container.module.css'
+import WizardStyle from '../wizard/wizard-container.module.css';
 
 
 const Payment = () => {
