@@ -51,7 +51,7 @@ export default function Home(props) {
         <nav className="d-flex flex-column align-items-center">
           <h1 className="my-3 text-center">Group Project</h1>
           <img src={logo} alt="Bounce House Logo" className={homeStyles.img} />
-          <Link to="/checkout">
+          <Link to="/customer/checkout">
             <Button className={homeStyles.btn}> Buy Pass </Button>
           </Link>
           <section>
