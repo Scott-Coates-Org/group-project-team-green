@@ -5,7 +5,6 @@ import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 
 
-
 const Checkout = () => {
   return (
     <Wizard >
