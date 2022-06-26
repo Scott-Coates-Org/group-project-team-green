@@ -1,4 +1,3 @@
-import { NavItem, NavLink, Nav } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 import { sidebarItems } from './sideBarData'
@@ -13,11 +12,11 @@ const SideBar = () => {
 				{sidebarItems.map((item) => {
 					const { name, icon, children } = item
 					return (
-						<div>
+						<div key={name}>
 							{children ? (
-								<SubMenu items={children} name={name} icon={icon} key={name} />
+								<SubMenu items={children} name={name} icon={icon} />
 							) : (
-								<div key={name} className={styles.sidebarItem}>
+								<div className={styles.sidebarItem}>
 									<Link
 										to={`/admin/${name.toLowerCase()}`}
 										className={styles.link}
