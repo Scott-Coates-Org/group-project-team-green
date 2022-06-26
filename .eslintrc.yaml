@@ -1,0 +1,7 @@
+extends:
+  - berkekaragoz/react
+rules:
+  arrow-body-style: off
+  react/function-component-definition: off
+  react/jsx-filename-extension: off
+  sort-imports: off
