@@ -30,7 +30,6 @@ const AddAddOnForm = () => {
             })
           );
         }
-        console.log("Photourl in onsubmit//addnewaddOn: ", photoUrl);
       })
       .then(reset(), setLoadingStatus("idle"));
   };

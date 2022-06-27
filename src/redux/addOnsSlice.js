@@ -35,11 +35,9 @@ const addOnsSlice = createSlice({
         console.log("State in fetchaddOns.addcase", state.addOns);
       })
       .addCase(addNewAddOn.fulfilled, (state, action) => {
-        console.log("addNewAddOn.fulfilled Payload:", action.payload);
         state.addOns = [...state.addOns, action.payload];
-        console.log("AddOn State:", state.addOns);
       })
-      .addCase(addNewaddOn.rejected, (state, action) => {
+      .addCase(addNewAddOn.rejected, (state, action) => {
         (state.loadingStatus = "failed"), (state.error = action.error.message);
       });
   },
