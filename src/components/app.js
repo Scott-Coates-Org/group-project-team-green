@@ -4,7 +4,7 @@ import { AuthProvider, useAuth } from "components/user/auth";
 import Login from "components/user/login";
 import Logout from "components/user/logout";
 import Admin from "components/admin/dashboard";
-import Checkout from "components/customer/Checkout";
+import Checkout from "components/customer/checkout";
 import { firebase } from "firebase/client";
 import { createBrowserHistory } from "history";
 import { useEffect } from "react";
@@ -67,7 +67,7 @@ function App() {
                 <Logout {...routeProps} {...props} firebase={firebase} />
               )}
             />
-            
+
             <Route
               path="/admin/all products"
               render={(routeProps) => (
