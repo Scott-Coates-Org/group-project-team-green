@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { createWidget, fetchAllWidgets, savePhoto } from "redux/widget";
-import Layout from "./layout";
+import { Link } from 'react-router-dom';
+import Layout from './layout';
+import logo from '../assets/images/logo_transparent.png';
+import homeStyles from '../css/home.module.css';
+
 
 export default function Home(props) {
   const dispatch = useDispatch();
@@ -49,12 +53,17 @@ export default function Home(props) {
 
   return (
     <Layout {...props}>
-      <nav className="d-flex flex-column align-items-center">
-        <h1 className="my-3 text-center">My Project</h1>
-        <section>
-          {!isLoaded && "Widgets loading…"}
-          {hasErrors && "Error Loading"}
-          {isLoaded && (
+      <div className={homeStyles.wrapper}>
+        <nav className="d-flex flex-column align-items-center">
+          {/* <h1 className="my-3 text-center">Group Project</h1> */}
+          <img src={logo} alt="Bounce House Logo" className={homeStyles.img} />
+          <Link to="/customer/checkout">
+            <Button className={homeStyles.btn}> Buy Pass </Button>
+          </Link>
+          {/* <section>
+          {!isLoaded && 'Widgets loading…'}
+          {hasErrors && 'Error Loading'}
+          {isLoaded &&
             <div>
               <h4 className="my-3 text-center">Widgets are Loaded!</h4>
               <Form
@@ -100,9 +109,10 @@ export default function Home(props) {
                 {JSON.stringify(data, null, 2)}
               </pre>
             </div>
-          )}
-        </section>
-      </nav>
+          }
+        </section> */}
+        </nav>
+      </div>
     </Layout>
   );
 }

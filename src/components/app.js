@@ -13,6 +13,7 @@ import { getData, getDataSuccess } from "redux/user";
 import ErrorBoundary from "components/error-boundary";
 import AddAddOnForm from "./AddAddOnForm";
 
+
 // DO NOT import BrowserRouter (as per tutorial). that caused router to not actually do anything.
 // see here: https://stackoverflow.com/questions/63554233/react-router-v5-history-push-changes-the-address-bar-but-does-not-change-the
 // https://github.com/ReactTraining/react-router/issues/4059#issuecomment-254437084
@@ -40,6 +41,7 @@ function App() {
 
   const storeUserData = (user) => {
     const providerData = user.providerData[0];
+    user.admin && console.info("The user is admin!");
 
     const userData = { ...providerData, uid: user.uid };
 
@@ -63,13 +65,22 @@ function App() {
                 <Logout {...routeProps} {...props} firebase={firebase} />
               )}
             />
+            
             <Route
-              path="/addAddOnForm"
+              path="/admin/all products"
               render={(routeProps) => (
                 <AddAddOnForm {...routeProps} {...props} firebase={firebase} />
               )}
-            />{" "}
+            />
+
             {/* this must be on the bottom */}
+            <ProtectedRoute
+              isAdminRoute
+              path="/admin"
+              component={Admin}
+              {...props}
+            />
+            <ProtectedRoute path="/customer/checkout" component={Checkout} {...props} />
             <ProtectedRoute path="/" component={Home} {...props} />
           </Switch>
         </Router>
@@ -102,8 +113,8 @@ const ProtectedRoute = ({ component, ...args }) => {
 // node_modules/@auth0/auth0-react/src/with-authentication-required.tsx
 function withAuthenticationRequired(Component, options) {
   return function WithAuthenticationRequired(props) {
-    const { isAuthenticated, isLoaded } = useAuth();
-
+    const { isAdminRoute = false } = props;
+    const { isAuthenticated, isLoaded, user } = useAuth();
     const {
       returnTo = defaultReturnTo,
       onRedirecting = defaultOnRedirecting,
@@ -114,22 +125,24 @@ function withAuthenticationRequired(Component, options) {
       let isAuthorized = false;
 
       if (isLoaded) {
-        isAuthorized = isAuthenticated;
+        isAuthorized = isAdminRoute ? !!user?.admin : isAuthenticated;
 
-        if (!isAuthorized) {
-          const opts = {
-            ...loginOptions,
-            appState: {
-              ...loginOptions.appState,
-              returnTo: typeof returnTo === "function" ? returnTo() : returnTo,
-            },
-          };
+        const opts = {
+          ...loginOptions,
+          appState: {
+            ...loginOptions.appState,
+            returnTo: typeof returnTo === "function" ? returnTo() : returnTo,
+          },
+        };
 
-          history.push("/login", opts);
-        }
+        if (!isAuthenticated) history.push("/login", opts);
+        else if (!isAuthorized) history.push("/", opts);
       }
     }, [history, isAuthenticated, loginOptions, returnTo]);
 
+    // If authenticated,
+    // Is the route admin only?
+    // If route is admin only, is the user admin?
     return isAuthenticated ? <Component {...props} /> : onRedirecting();
   };
 }
