@@ -3,69 +3,66 @@ import firebaseClient from "firebase/client";
 
 const initialState = {
   data: [],
-  products: [],
+  addOns: [],
   loadingStatus: "idle",
   error: null,
 };
-const productsSlice = createSlice({
-  name: "products",
+const addOnsSlice = createSlice({
+  name: "addOns",
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchProducts.pending, (state, action) => {
+      .addCase(fetchaddOns.pending, (state, action) => {
         state.loadingStatus = "loading";
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchaddOns.fulfilled, (state, action) => {
         state.loadingStatus = "success";
-        const loadedProducts = action.payload.data;
-        state.products = state.products.push(loadedProducts);
+        const loadedaddOns = action.payload.data;
+        state.addOns = state.addOns.push(loadedaddOns);
         console.log(
-          "loadedproducts in fetchproducts.fulfilled",
-          loadedProducts,
-          "loadedProducts:",
-          loadedProducts,
-          "State.products:",
-          state.products
+          "loadedaddOns in fetchaddOns.fulfilled",
+          loadedaddOns,
+          "loadedaddOns:",
+          loadedaddOns,
+          "State.addOns:",
+          state.addOns
         );
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchaddOns.rejected, (state, action) => {
         state.loadingStatus = "failed";
         state.error = action.error.message;
-        console.log("State in fetchProducts.addcase", state.products);
+        console.log("State in fetchaddOns.addcase", state.addOns);
       })
-      .addCase(addNewProduct.fulfilled, (state, action) => {
-        console.log("addNewProduct.fulfilled Payload:", action.payload);
-        state.products = [...state.products, action.payload];
-        console.log("Product State:", state.products);
+      .addCase(addNewAddOn.fulfilled, (state, action) => {
+        console.log("addNewAddOn.fulfilled Payload:", action.payload);
+        state.addOns = [...state.addOns, action.payload];
+        console.log("AddOn State:", state.addOns);
       })
-      .addCase(addNewProduct.rejected, (state, action) => {
+      .addCase(addNewaddOn.rejected, (state, action) => {
         (state.loadingStatus = "failed"), (state.error = action.error.message);
       });
   },
 });
 
-export const fetchProducts = createAsyncThunk(
-  "products/fetchProducts",
-  async (_) => {
-    try {
-      const response = await _fetchAllProductsFromDb();
-      debugger;
-      console.log("response.data in fetchproducts:", response.data);
-      console.log("Response var in fetchProducts:", response);
-      return response.data;
-    } catch (error) {
-      error.message;
-    }
+export const fetchaddOns = createAsyncThunk("addOns/fetchaddOns", async (_) => {
+  try {
+    const response = await _fetchAlladdOnsFromDb();
+    debugger;
+    console.log("response.data in fetchaddOns:", response.data);
+    console.log("Response var in fetchaddOns:", response);
+    return response.data;
+  } catch (error) {
+    error.message;
   }
-);
+});
 
-async function _fetchAllProductsFromDb() {
-  const productSnapshot = await firebaseClient
+async function _fetchAlladdOnsFromDb() {
+  constaddOntSnapshot = await firebaseClient
     .firestore()
-    .collection("products")
+    .collection("addOns")
     .get();
-  const data = productSnapshot.docs.map((doc) => {
+  const data = addOnSnapshot.docs.map((doc) => {
     const data = doc.data();
     return { id: doc.id, ...data };
   });
@@ -74,14 +71,14 @@ async function _fetchAllProductsFromDb() {
   return data;
 }
 
-export const addNewProduct = createAsyncThunk(
-  "products/addNewProduct",
+export const addNewAddOn = createAsyncThunk(
+  "addOns/addNewAddOn",
   async (payload) => {
     try {
-      await _addNewProduct(
-        payload.productName,
-        payload.productPrice,
-        payload.productPhoto
+      await _addNewAddOn(
+        payload.addOnName,
+        payload.addOnPrice,
+        payload.addOnPhoto
       );
       return payload;
     } catch (error) {
@@ -89,18 +86,18 @@ export const addNewProduct = createAsyncThunk(
     }
   }
 );
-async function _addNewProduct(productName, productPrice, productPhoto) {
+async function _addNewAddOn(addOnName, addOnPrice, addOnPhoto) {
   const doc = await firebaseClient
     .firestore()
-    .collection("products")
-    .doc(productName)
-    .set({ Name: productName, Price: productPrice, Photo: productPhoto });
+    .collection("addOns")
+    .doc(addOnName)
+    .set({ Name: addOnName, Price: addOnPrice, Photo: addOnPhoto });
 
   return doc;
 }
 
 export const savePhoto = createAsyncThunk(
-  "products/savePhoto",
+  "addOns/savePhoto",
   async (payload) => {
     const file = payload.file;
 
@@ -148,19 +145,19 @@ function _appendToFilename(filename, string) {
 function _updloadFile(fileName, file) {
   const uploadTask = firebaseClient
     .storage()
-    .ref(`product-photos/${fileName}`)
+    .ref(`addOn-photos/${fileName}`)
     .put(file);
 
   return uploadTask;
 }
 
-export const selectAllProducts = (state) => {
-  return state.products;
+export const selectAlladdOns = (state) => {
+  return state.addOns;
 };
-export const selectProductsLoadingStatus = (state) => {
+export const selectaddOnsLoadingStatus = (state) => {
   debugger;
-  return state.products.loadingStatus;
+  return state.addOns.loadingStatus;
 };
-export const getProductsError = (state) => state.error;
-export const {} = productsSlice.actions;
-export default productsSlice.reducer;
+export const getaddOnsError = (state) => state.error;
+export const {} = addOnsSlice.actions;
+export default addOnsSlice.reducer;

@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addNewProduct, fetchProducts } from "redux/productsSlice";
-import { savePhoto } from "redux/productsSlice";
+import { addNewAddOn, fetchAddOns } from "redux/addOnsSlice";
+import { savePhoto } from "redux/addOnsSlice";
 
-const AddProductForm = () => {
+const AddAddOnForm = () => {
   const dispatch = useDispatch();
 
   const {
@@ -18,19 +18,19 @@ const AddProductForm = () => {
   const onSubmit = (formData) => {
     console.log("form data in onsubmit:", formData),
       setLoadingStatus("pending");
-    dispatch(savePhoto({ file: formData.productPhoto[0] }))
+    dispatch(savePhoto({ file: formData.addOnPhoto[0] }))
       .then((action) => {
         const photoUrl = action.payload;
         if (photoUrl) {
           dispatch(
-            addNewProduct({
-              productName: formData.productName,
-              productPrice: formData.productPrice,
-              productPhoto: photoUrl,
+            addNewAddOn({
+              addOnName: formData.addOnName,
+              addOnPrice: formData.addOnPrice,
+              addOnPhoto: photoUrl,
             })
           );
         }
-        console.log("Photourl in onsubmit//addnewproduct: ", photoUrl);
+        console.log("Photourl in onsubmit//addnewaddOn: ", photoUrl);
       })
       .then(reset(), setLoadingStatus("idle"));
   };
@@ -39,27 +39,27 @@ const AddProductForm = () => {
     <section>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          id="productName"
+          id="addOnName"
           type="text"
-          {...register("productName", { required: true })}
-          placeholder="Product Name"
+          {...register("addOnName", { required: true })}
+          placeholder="addOn Name"
         />
         <input
-          id="productPrice"
+          id="addOnPrice"
           type="number"
-          {...register("productPrice", { required: true })}
-          placeholder="Product Price"
+          {...register("addOnPrice", { required: true })}
+          placeholder="addOn Price"
         />
         <input
-          id="productPhoto"
+          id="addOnPhoto"
           type="file"
           accept="image/*"
-          {...register("productPhoto", { required: true })}
+          {...register("addOnPhoto", { required: true })}
         />
-        <button type="submit">Add Product</button>
+        <button type="submit">Add AddOn</button>
       </form>
     </section>
   );
 };
 
-export default AddProductForm;
+export default AddAddOnForm;
