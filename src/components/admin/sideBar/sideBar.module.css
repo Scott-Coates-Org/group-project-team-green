@@ -1,0 +1,33 @@
+.sideMenu {
+  width: 250px;
+  height: 100vh;
+  background: #1f1f1f;
+  color: #d2d2d2;
+  transition: all 0.5s;
+}
+
+.sidebarItems {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  padding-left: 0.5rem;
+}
+
+.sidebarItem {
+  padding: 0.5rem;
+}
+
+.link {
+  color: #d2d2d2;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.link:hover {
+  color: #86dbff;
+}
+
+.subMenuItem:hover {
+  color: #86dbff;
+  text-decoration: none;
+}
