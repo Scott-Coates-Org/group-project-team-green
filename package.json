@@ -45,7 +45,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^8.18.0",
     "eslint-config-berkekaragoz": "^0.4.3"
   }
 }

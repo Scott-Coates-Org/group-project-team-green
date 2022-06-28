@@ -3,7 +3,7 @@ import Home from "components/home"
 import { AuthProvider, useAuth } from "components/user/auth"
 import Login from "components/user/login"
 import Logout from "components/user/logout"
-import Admin from "components/admin/dashboard"
+import AdminPage from "components/admin/AdminPage"
 import Checkout from "components/customer/Checkout"
 import { firebase } from "firebase/client"
 import { createBrowserHistory } from "history"
@@ -13,7 +13,6 @@ import { Route, Router, Switch } from "react-router-dom"
 import store from "redux/store"
 import { getData, getDataSuccess } from "redux/user"
 import ErrorBoundary from "components/error-boundary"
-import AddAddOnForm from "./AddAddOnForm"
 
 // DO NOT import BrowserRouter (as per tutorial). that caused router to not actually do anything.
 // see here: https://stackoverflow.com/questions/63554233/react-router-v5-history-push-changes-the-address-bar-but-does-not-change-the
@@ -67,17 +66,10 @@ function App() {
               )}
             />
 
-            <Route
-              path="/admin/all products"
-              render={(routeProps) => (
-                <AddAddOnForm {...routeProps} {...props} firebase={firebase} />
-              )}
-            />
-
             {/* this must be on the bottom */}
             <ProtectedRoute
               isAdminRoute
-              component={Admin}
+              component={AdminPage}
               path="/admin"
               {...props}
             />
