@@ -42,10 +42,12 @@ Try This
 
 ## Team Members Roll Call
 
-- [ ] Berke
+
+- [X] Berke
 - [x] Emily
-- [ ] Umar
-- [ ] Jennifer
+- [x] Umar
+- [x] Jennifer
+
 
 ## Sprint Progress
 
