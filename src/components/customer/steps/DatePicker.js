@@ -16,8 +16,8 @@ const DatePicker = () => {
                         onChange={onChange}
                         value={value}
                         calendarType='US'
-                        maxDetail='month'
                         minDate={new Date()}
+                        maxDate={new Date('December 31, 2022')}
                     />
                 </main>
             </div>
