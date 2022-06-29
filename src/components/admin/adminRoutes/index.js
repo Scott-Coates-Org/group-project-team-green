@@ -2,6 +2,7 @@ import AllProducts from "./AllProducts"
 import Apps from "./Apps"
 import Bookings from "./Bookings"
 import Categories from "./Categories"
+import CreateAddOns from "./CreateAddOns"
 import CreateProducts from "./CreateProducts"
 import Customers from "./Customers"
 import Dashboard from "./Dashboard"
@@ -17,6 +18,7 @@ export {
   Bookings,
   Categories,
   CreateProducts,
+  CreateAddOns,
   Customers,
   Dashboard,
   DiscountCodes,

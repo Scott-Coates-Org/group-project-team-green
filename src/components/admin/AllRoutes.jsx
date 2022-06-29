@@ -5,6 +5,7 @@ import {
   Apps,
   Bookings,
   Categories,
+  CreateAddOns,
   CreateProducts,
   Customers,
   Dashboard,
@@ -24,6 +25,7 @@ const AllRoutes = () => {
         <Route path="/admin/bookings" component={Bookings} />
         <Route path="/admin/all products" component={AllProducts} />
         <Route path="/admin/create products" component={CreateProducts} />
+        <Route path="/admin/addons" component={CreateAddOns} />
         <Route path="/admin/stock" component={Stock} />
         <Route path="/admin/discount codes" component={DiscountCodes} />
         <Route path="/admin/categories" component={Categories} />
