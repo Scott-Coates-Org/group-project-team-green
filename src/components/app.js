@@ -3,8 +3,8 @@ import Home from "components/home"
 import { AuthProvider, useAuth } from "components/user/auth"
 import Login from "components/user/login"
 import Logout from "components/user/logout"
-import AdminPage from "components/admin/AdminPage"
-import Checkout from "components/customer/Checkout"
+import Admin from "components/admin/AdminPage"
+import Checkout from "components/customer/checkout"
 import { firebase } from "firebase/client"
 import { createBrowserHistory } from "history"
 import { useEffect } from "react"
@@ -69,7 +69,7 @@ function App() {
             {/* this must be on the bottom */}
             <ProtectedRoute
               isAdminRoute
-              component={AdminPage}
+              component={Admin}
               path="/admin"
               {...props}
             />
