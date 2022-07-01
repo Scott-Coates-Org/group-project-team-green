@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const DatePicker = () => {
+const DatePicker = ({ getDate }) => {
     const [value, onChange] = useState(new Date());
 
     return (
@@ -14,6 +14,7 @@ const DatePicker = () => {
                 <main>
                     <Calendar
                         onChange={onChange}
+                        onClickDay={(value, error) => getDate(value.toLocaleDateString())}
                         value={value}
                         calendarType='US'
                         minDate={new Date()}
