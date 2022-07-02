@@ -17,6 +17,7 @@
     "firebase-encode": "^0.0.5",
     "history": "^4.10.1",
     "node": "^14.18.0",
+    "normalize.css": "^8.0.1",
     "react": "^17.0.0",
     "react-accessible-accordion": "^5.0.0",
     "react-avatar": "^3.10.0",
