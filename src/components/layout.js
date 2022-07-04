@@ -21,7 +21,7 @@ export default function Layout(props) {
   return (
     <>
       <Helmet>
-        <link rel="icon" href="/public/favicon.ico" />
+        <link rel="icon" href="/public/favicon.png" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -53,13 +53,13 @@ function LayoutNav(props) {
   const nav = (
     <div className="nav-wrapper border-bottom">
       <Navbar light expand="lg">
-        <NavbarBrand href="/">Solo Project</NavbarBrand>
+        <NavbarBrand href="/">Hopper</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar className="ml-auto">
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                <Avatar size={45} className="profile-image img-fluid rounded-circle mr-1" email={user.email} />
+                <Avatar size={35} className="profile-image img-fluid rounded-circle mr-1" email={user.email} />
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href="#">
