@@ -1,5 +1,4 @@
-
 module.exports = {
-    ...require("eslint-config-berkekaragoz-formatting/prettier"),
-    tabWidth: 2,
-  };
+  ...require("eslint-config-berkekaragoz-formatting/prettier"),
+  tabWidth: 2,
+}
