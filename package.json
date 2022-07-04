@@ -32,7 +32,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && firebase deploy"
+    "deploy": "yarn build && firebase deploy",
+    "preview": "firebase emulators:start",
+    "format": "prettier --write ."
   },
   "browserslist": [
     ">0.2%",
@@ -41,7 +43,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^8.18.0",
     "eslint-config-berkekaragoz": "^0.4.3"
   }
 }
