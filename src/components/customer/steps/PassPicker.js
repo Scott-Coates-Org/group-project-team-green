@@ -11,8 +11,23 @@ import {
 // import 'react-accessible-accordion/dist/fancy-example.css';
 import './passpicker.css';
 import myImage from '../../../assets/images/homepage-background.png';
+import firebaseClient from '../../../firebase/client'
+
 
 const PassPicker = ({ pickedDate }) => {
+    let productsRef = firebaseClient
+        .firestore()
+        .collection("products")
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+            });
+        });
+
+
+    // console.log(productsRef);
+    // console.log(_fetchProducts);
     return (
         <Accordion allowZeroExpanded allowMultipleExpanded>
             <AccordionItem className='accordion__item'>
