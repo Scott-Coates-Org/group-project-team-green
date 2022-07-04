@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { createNewProduct } from "redux/productsSlice"
 import { savePhoto } from "redux/productsSlice"
+import { Button} from "reactstrap"
+import "../css/form.css"
 
 const CreateProductForm = () => {
   const dispatch = useDispatch()
@@ -37,25 +39,29 @@ const CreateProductForm = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <h3>Create a New Product</h3>
         <input
           id="productName"
           type="text"
           {...register("productName", { required: true })}
           placeholder="product Name"
         />
+        <br />
         <input
           id="productPrice"
           type="number"
           {...register("productPrice", { required: true })}
           placeholder="product Price"
         />
-        debugger
+        <br />
+        <label htmlFor="productRoom">Select a Room: </label>
         <select id="productRoom" {...register("productRoom", { required: true })}>
-          debugger
           <option value="Room1"> Room 1</option>
           <option value="Room2">Room 2</option>
         </select>
+        <br />
+        <label htmlFor="productDuration">Duration: </label>
         <select
           id="productDuration"
           {...register("productDuration", { required: true })}
@@ -65,13 +71,15 @@ const CreateProductForm = () => {
           <option value="120">120 Minutes</option>
           <option value="600">All Day Jump</option>
         </select>
+        <br />
         <input
           id="productPhoto"
           type="file"
           accept="image/*"
           {...register("productPhoto", { required: true })}
         />
-        <button type="submit">Create Product</button>
+        <br />
+        <Button type="submit">Create Product</Button>
       </form>
     </section>
   )
