@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useWizard } from 'react-use-wizard';
 import { Button } from 'reactstrap';
 import WizardStyle from '../wizard/wizard-container.module.css';
+import DatePicker from './DatePicker';
+import PassPicker from './PassPicker';
 
 
 const PassSelection = () => {
   const { nextStep } = useWizard();
+  const [date, setDate] = useState('');
 
-    return (
-      <div>
-        <p>This will have the date picker and the pass selection.</p>
-        <Button className={WizardStyle.next_btn} color="primary" size="lg" onClick={() => nextStep()}> Next </Button>
-      </div>
-    )
+  const getDate = (pickedDate) => {
+    setDate(pickedDate);
+  }
+
+  return (
+    <div>
+      {date === '' ? <DatePicker getDate={getDate} /> : null}
+      {date !== '' ?
+        (<div>
+          <PassPicker pickedDate={date} />
+          <Button className={WizardStyle.next_btn} color="primary" size="lg" onClick={() => nextStep()}> Next </Button>
+        </div>)
+        : null}
+    </div>
+  )
 }
 
 export default PassSelection

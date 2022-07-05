@@ -56,7 +56,7 @@ export const fetchaddOns = createAsyncThunk("addOns/fetchaddOns", async (_) => {
 });
 
 async function _fetchAlladdOnsFromDb() {
-  constaddOntSnapshot = await firebaseClient
+  const addOnSnapshot = await firebaseClient
     .firestore()
     .collection("addOns")
     .get();
@@ -157,5 +157,5 @@ export const selectaddOnsLoadingStatus = (state) => {
   return state.addOns.loadingStatus;
 };
 export const getaddOnsError = (state) => state.error;
-export const {} = addOnsSlice.actions;
+export const { } = addOnsSlice.actions;
 export default addOnsSlice.reducer;
