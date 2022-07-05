@@ -10,7 +10,11 @@ import { FiSettings } from "react-icons/fi"
 export const sidebarItems = [
   { name: "Dashboard", icon: <AiOutlineAppstore /> },
   { name: "Inbox", icon: <BsInbox /> },
-  { name: "Bookings", icon: <BsBookmarks /> },
+  {
+    name: "Bookings",
+    icon: <BsBookmarks />,
+    children: ["All bookings", "Create rooms"],
+  },
   {
     name: "Products",
     icon: <BsFillTagFill />,

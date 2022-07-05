@@ -3,9 +3,10 @@ import { Route, Switch } from "react-router-dom"
 import {
   AllProducts,
   Apps,
-  Bookings,
+  AllBookings,
   Categories,
   CreateAddOns,
+  CreateRooms,
   CreateProducts,
   Customers,
   Dashboard,
@@ -22,7 +23,8 @@ const AllRoutes = () => {
       <Switch>
         <Route path="/admin/dashboard" component={Dashboard} />
         <Route path="/admin/inbox" component={Inbox} />
-        <Route path="/admin/bookings" component={Bookings} />
+        <Route path="/admin/all bookings" component={AllBookings} />
+        <Route path="/admin/create rooms" component={CreateRooms} />
         <Route path="/admin/all products" component={AllProducts} />
         <Route path="/admin/create products" component={CreateProducts} />
         <Route path="/admin/addons" component={CreateAddOns} />
