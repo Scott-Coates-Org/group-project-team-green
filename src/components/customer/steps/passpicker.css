@@ -63,6 +63,20 @@
     align-items: center;
 }
 
+.pass-quantity-selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.session-time-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
 /* -------------------------------------------------- */
 /* ---------------- Animation part ------------------ */
 /* -------------------------------------------------- */
