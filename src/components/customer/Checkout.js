@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 const Checkout = () => {
   return (
     <div>
-      
-      <div className="d-flex justify-content-center vw-100 vh-100 bg-primary" >
-      <Link to="/">
-        <Button className="mt-4">
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </Button>
-      </Link>
+
+      <div className="d-flex justify-content-center bg-primary" >
+        <Link to="/">
+          <Button className="mt-4">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
+        </Link>
         <WizardContainer />
         <Cart />
       </div>
