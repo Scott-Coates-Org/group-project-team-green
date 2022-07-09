@@ -6,7 +6,6 @@ const DatePicker = ({ getDate }) => {
     const [value, onChange] = useState(new Date());
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
-
     return (
         <div>
             <header>

@@ -23,11 +23,11 @@ const options = [
   { value: '7:00 pm', label: '7:00 pm' },
 ]
 
-const SelectTime = ({ sliceNumber }) => {
+const SelectTime = ({ sliceNumber, getTimeVal }) => {
   return (
     <Select
       options={sliceNumber ? options.slice(0, sliceNumber) : options}
-      onChange={(value) => console.log(value.value)}
+      onChange={(value) => getTimeVal(value.value)}
     />
   )
 }

@@ -7,11 +7,11 @@ import ContactInfo from '../steps/ContactInfo';
 import Payment from '../steps/Payment';
 import WizardStyle from './wizard-container.module.css';
 
-const WizardContainer = () => {
+const WizardContainer = ({ onAdd }) => {
     return (
         <div className={WizardStyle.container}>
             <Wizard header={<WizardHeader />}>
-                <PassSelection />
+                <PassSelection onAdd={onAdd} />
                 <AddOns />
                 <ContactInfo />
                 <Payment />
