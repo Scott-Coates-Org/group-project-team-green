@@ -14,6 +14,7 @@ import './passpicker.css';
 import myImage from '../../../assets/images/homepage-background.png';
 import firebaseClient from '../../../firebase/client'
 import IncDecCounter from './IncDecCounter';
+import SelectTime from './SelectTime';
 
 const timeslots = [
     "10:00 am", "10:30 am", "11:00 am", "11:30 am", "12:00 pm",
@@ -105,9 +106,7 @@ const PassPicker = ({ pickedDate }) => {
                                 {product.NumberOfSessionTimes !== 0 ? (
                                     <div>
                                         <p>Session Time</p>
-                                        <div className='session-time-btns-wrapper'>
-                                            {createSessionTimes(product.Name, product.NumberOfSessionTimes)}
-                                        </div>
+                                        <SelectTime sliceNumber={product.NumberOfSessionTimes}></SelectTime>
                                     </div>
                                 )
                                     : null}
