@@ -6,6 +6,13 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
+
+env:
+  REACT_APP_FIREBASE_AUTH_DOMAIN: "team-green-6d418.firebaseapp.com"
+  REACT_APP_FIREBASE_API_KEY: "AIzaSyBce4y1ijL9fDHRyCXJ7oUDHQuldncUTEQ"
+  REACT_APP_FIREBASE_PROJECT_ID: "team-green-6d418"
+  REACT_APP_FIREBASE_STORAGE_BUCKET: "team-green-6d418.appspot.com"
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
