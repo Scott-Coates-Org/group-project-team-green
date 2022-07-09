@@ -13,7 +13,6 @@ import { Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
 import './passpicker.css';
 import myImage from '../../../assets/images/homepage-background.png';
 import firebaseClient from '../../../firebase/client'
-import IncDecCounter from './IncDecCounter';
 import SelectTime from './SelectTime';
 import PassItem from './PassItem';
 

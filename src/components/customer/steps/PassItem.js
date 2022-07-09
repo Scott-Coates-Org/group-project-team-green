@@ -6,7 +6,6 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion';
 import SelectTime from './SelectTime';
-import IncDecCounter from './IncDecCounter';
 import { Button } from 'reactstrap';
 
 const PassItem = ({ product, onAdd }) => {
@@ -20,17 +19,25 @@ const PassItem = ({ product, onAdd }) => {
     const createPassSelectionForm = (product, duration, timeVal) => {
         let passForm = [];
         for (let key in product) {
+            console.log(product[key]);
             passForm.push(<div key={`${product[key].PassName}-form-${key}`} className='pass-quantity-selection'>
                 <p className='pass-name'>{product[key].PassName}</p>
                 {duration !== "All day" ?
                     <p>2 hours</p>
                     : <p></p>}
                 <p className='price'>{`$${product[key].Price}.00`}</p>
-                <Button disabled={!timeVal} onClick={() => {
-                    onAdd(product[key], timeVal)
-                }
-
-                }>Add to Cart</Button>
+                {product[key].PassName === 'Unlimited Pass 7 or Older' ?
+                    <Button
+                        onClick={() => { onAdd(product[key]) }
+                        }>Add to Cart</Button>
+                    : <Button
+                        disabled={!timeVal}
+                        onClick={() => { onAdd(product[key], timeVal) }
+                        }>Add to Cart</Button>}
+                {/* <Button
+                    disabled={!timeVal}
+                    onClick={() => { onAdd(product[key], timeVal) }
+                    }>Add to Cart</Button> */}
             </div>)
         }
 
