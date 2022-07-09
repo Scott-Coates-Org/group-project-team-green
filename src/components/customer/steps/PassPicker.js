@@ -37,7 +37,9 @@ const PassPicker = ({ pickedDate }) => {
                         ...doc.data(),
                         key: doc.id,
                     });
+
                 });
+
                 setProducts(getProductsFromFirebase);
             });
 
@@ -47,7 +49,7 @@ const PassPicker = ({ pickedDate }) => {
     const createSessionTimes = (name, number) => {
         let sessionTimes = [];
         for (let i = 0; i < number; i++) {
-            sessionTimes.push(<Button key={`${name}-btn-${i}`}>{timeslots[i]}</Button>)
+            sessionTimes.push(<Button className="session-time-btns" key={`${name}-btn-${i}`}>{timeslots[i]}</Button>)
         }
         return sessionTimes;
     }
@@ -62,30 +64,59 @@ const PassPicker = ({ pickedDate }) => {
         }
     }
 
-    return (
-        <Accordion allowZeroExpanded allowMultipleExpanded>
-            {products.map((product) =>
-                <div key={product.key}>
-                    <AccordionItem className='accordion__item'>
-                        <AccordionItemHeading >
-                            <AccordionItemButton>
-                                <div className='accordion__heading'>
-                                    <img src={product.Photo} className='img' />
-                                    <div>
-                                        <h3>{product.Name}</h3>
-                                        {setQuantity(product.Name, 0)}
-                                        <p>{`${product.Duration} minutes!`}</p>
-                                    </div>
-                                </div>
+    const createPassSelectionForm = (product, duration) => {
+        let passForm = [];
+        for (let key in product) {
+            console.log(product[key].PassName, product[key].Price)
+            passForm.push(<div key={`${product[key].PassName}-form-${key}`} className='pass-quantity-selection'>
+                <p className='pass-name'>{product[key].PassName}</p>
+                {duration !== "All day" ?
+                    <p>2 hours</p>
+                    : <p></p>}
+                <p className='price'>{`$${product[key].Price}.00`}</p>
+                <IncDecCounter />
+            </div>)
+        }
 
-                            </AccordionItemButton>
-                        </AccordionItemHeading>
-                        <AccordionItemPanel className='accordion__panel'>
-                            <div>
+        return (<div className='pass-quantity-selection-wrapper'>{passForm}</div>)
+
+
+    }
+    return (
+        <div>
+            <Button className='picked-date'>{pickedDate}</Button>
+            <Accordion allowZeroExpanded allowMultipleExpanded>
+                {products.map((product) =>
+                    <div key={product.key}>
+                        <AccordionItem className='accordion__item'>
+                            <AccordionItemHeading >
+                                <AccordionItemButton>
+                                    <div className='accordion__heading'>
+                                        <img src={product.Photo} className='img' />
+                                        <div>
+                                            <h3>{product.Name}</h3>
+                                            {setQuantity(product.Name, 0)}
+                                            <p>{product.Description}</p>
+                                        </div>
+                                    </div>
+                                </AccordionItemButton>
+                            </AccordionItemHeading>
+                            <AccordionItemPanel className='accordion__panel'>
+                                {product.NumberOfSessionTimes !== 0 ? (
+                                    <div>
+                                        <p>Session Time</p>
+                                        <div className='session-time-btns-wrapper'>
+                                            {createSessionTimes(product.Name, product.NumberOfSessionTimes)}
+                                        </div>
+                                    </div>
+                                )
+                                    : null}
+                                {createPassSelectionForm(product.PassType, product.Duration)}
+                                {/* <div>
                                 {product.Name === 'Jr. Jump Chaperone' ? (
                                     <div>
                                         <p>Session Time</p>
-                                        <div className='session-time-btns'>
+                                        <div className='session-time-btns-wrapper'>
                                             {createSessionTimes('jr-chaperone', 4)}
                                         </div>
                                         <div className='pass-quantity-selection'>
@@ -110,13 +141,13 @@ const PassPicker = ({ pickedDate }) => {
                                         </div>
                                     </div>
                                 ) : null}
-                            </div>
-                        </AccordionItemPanel>
-                    </AccordionItem>
-                </div>
-
-            )}
-        </Accordion>
+                            </div> */}
+                            </AccordionItemPanel>
+                        </AccordionItem>
+                    </div>
+                )}
+            </Accordion>
+        </div>
     )
 }
 
