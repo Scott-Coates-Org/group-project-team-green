@@ -23,7 +23,7 @@ const timeslots = [
     "5:30 pm", "6:00 pm", "6:30 pm", "7:00 pm"
 ]
 
-const PassPicker = ({ pickedDate, onAdd }) => {
+const PassPicker = ({ pickedDate, onAdd, onRemove }) => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const getProductsFromFirebase = [];
@@ -70,7 +70,7 @@ const PassPicker = ({ pickedDate, onAdd }) => {
             <Button className='picked-date'>{pickedDate}</Button>
             <Accordion allowZeroExpanded allowMultipleExpanded>
                 {products.map((product) =>
-                    <PassItem product={product} key={product.key} onAdd={onAdd} />
+                    <PassItem product={product} key={product.key} onAdd={onAdd} onRemove={onRemove} />
                     // <div key={product.key}>
                     //     <AccordionItem className='accordion__item'>
                     //         <AccordionItemHeading >

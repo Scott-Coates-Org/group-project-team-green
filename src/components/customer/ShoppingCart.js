@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import WizardStyle from './wizard/wizard-container.module.css';
-import firebaseClient from '../../firebase/client'
 
 const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
 
@@ -33,6 +32,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
     })
     return <div>{itemslist}</div>
   }
+
   return (
     <div className={WizardStyle.cart}>
       <div>
