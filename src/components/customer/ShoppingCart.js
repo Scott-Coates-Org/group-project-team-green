@@ -14,13 +14,12 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
 
   const printItems = (cartItems) => {
     let itemslist = [];
-    console.log(cartItems);
     cartItems.map((item) => {
       itemslist.push(
-        <div key={`${item.PassName}-${item.time}`}>
+        <div key={item.PassName ? `${item.PassName}-${item.time}` : `${item.Name}`}>
           <div>
-            <div>{item.PassName}</div>
-            <div>{item.time}</div>
+            <div>{item.PassName ? item.PassName : item.Name}</div>
+            <div>{item.time ? item.time : null}</div>
             <button onClick={() => onRemove(item, item.time)}>-</button>
             {' '}
             <button onClick={() => onAdd(item, item.time)}>+</button>

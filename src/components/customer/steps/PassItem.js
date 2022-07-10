@@ -7,19 +7,18 @@ import {
 } from 'react-accessible-accordion';
 import SelectTime from './SelectTime';
 import { Button } from 'reactstrap';
+import IncDecCounter from './IncDecCounter';
 
-const PassItem = ({ product, onAdd }) => {
+const PassItem = ({ product, onAdd, onRemove }) => {
     const [timeVal, setTimeVal] = useState(false);
 
     const getTimeVal = (value) => {
-        console.log(value);
         setTimeVal(value);
     }
 
     const createPassSelectionForm = (product, duration, timeVal) => {
         let passForm = [];
         for (let key in product) {
-            console.log(product[key]);
             passForm.push(<div key={`${product[key].PassName}-form-${key}`} className='pass-quantity-selection'>
                 <p className='pass-name'>{product[key].PassName}</p>
                 {duration !== "All day" ?
@@ -34,10 +33,6 @@ const PassItem = ({ product, onAdd }) => {
                         disabled={!timeVal}
                         onClick={() => { onAdd(product[key], timeVal) }
                         }>Add to Cart</Button>}
-                {/* <Button
-                    disabled={!timeVal}
-                    onClick={() => { onAdd(product[key], timeVal) }
-                    }>Add to Cart</Button> */}
             </div>)
         }
 
@@ -50,10 +45,9 @@ const PassItem = ({ product, onAdd }) => {
                 <AccordionItemHeading >
                     <AccordionItemButton>
                         <div className='accordion__heading'>
-                            <img src={product.Photo} className='img' />
+                            <img src={product.Photo} className='img' alt={product.Name} />
                             <div>
                                 <h3>{product.Name}</h3>
-                                {/* {setQuantity(product.Name, 0)} */}
                                 <p>{product.Description}</p>
                             </div>
                         </div>

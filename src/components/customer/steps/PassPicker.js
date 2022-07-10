@@ -46,57 +46,12 @@ const PassPicker = ({ pickedDate, onAdd, onRemove }) => {
         return () => productsRef();
     }, []);
 
-    // const createSessionTimes = (name, number) => {
-    //     let sessionTimes = [];
-    //     for (let i = 0; i < number; i++) {
-    //         sessionTimes.push(<Button className="session-time-btns" key={`${name}-btn-${i}`}>{timeslots[i]}</Button>)
-    //     }
-    //     return sessionTimes;
-    // }
-
-    // const setQuantity = (name, qty) => {
-    //     let prod = productsQuantity.find(prod => prod.name === name);
-
-    //     if (!prod) {
-    //         productsQuantity.push({ name, qty });
-    //     } else {
-    //         prod.qty += qty;
-    //     }
-    // }
-
-
     return (
         <div>
             <Button className='picked-date'>{pickedDate}</Button>
             <Accordion allowZeroExpanded allowMultipleExpanded>
                 {products.map((product) =>
                     <PassItem product={product} key={product.key} onAdd={onAdd} onRemove={onRemove} />
-                    // <div key={product.key}>
-                    //     <AccordionItem className='accordion__item'>
-                    //         <AccordionItemHeading >
-                    //             <AccordionItemButton>
-                    //                 <div className='accordion__heading'>
-                    //                     <img src={product.Photo} className='img' />
-                    //                     <div>
-                    //                         <h3>{product.Name}</h3>
-                    //                         {setQuantity(product.Name, 0)}
-                    //                         <p>{product.Description}</p>
-                    //                     </div>
-                    //                 </div>
-                    //             </AccordionItemButton>
-                    //         </AccordionItemHeading>
-                    //         <AccordionItemPanel className='accordion__panel'>
-                    //             {product.NumberOfSessionTimes !== 0 ? (
-                    //                 <div>
-                    //                     <p>Session Time</p>
-                    //                     <SelectTime sliceNumber={product.NumberOfSessionTimes}></SelectTime>
-                    //                 </div>
-                    //             )
-                    //                 : null}
-                    //             {createPassSelectionForm(product.PassType, product.Duration)}
-                    //         </AccordionItemPanel>
-                    //     </AccordionItem>
-                    // </div>
                 )}
             </Accordion>
         </div>

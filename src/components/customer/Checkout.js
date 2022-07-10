@@ -8,36 +8,73 @@ import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
+  const hasItems = () => {
+    return cartItems.length > 0;
+  }
 
   const onAdd = (product, time) => {
+    if (product.PassName) {
+      const exist = cartItems.find((x) => (x.PassName === product.PassName || x.Name === product.Name) && x.time === time);
 
-    const exist = cartItems.find((x) => x.PassName === product.PassName && x.time === time);
-
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.PassName === product.PassName && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
+      if (exist) {
+        setCartItems(
+          cartItems.map((x) =>
+            (x.PassName === product.PassName || x.Name === product.Name) && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
+          )
         )
-      )
-    } else {
-      setCartItems([...cartItems, { ...product, qty: 1, time: time }]);
+      } else {
+        setCartItems([...cartItems, { ...product, qty: 1, time: time }]);
+      }
+    }
+
+    if (product.Name) {
+      const exist = cartItems.find((x) => (x.Name === product.Name));
+
+      if (exist) {
+        setCartItems(
+          cartItems.map((x) =>
+            (x.Name === product.Name) ? { ...exist, qty: exist.qty + 1 } : x
+          )
+        )
+      } else {
+        setCartItems([...cartItems, { ...product, qty: 1 }]);
+      }
     }
   }
 
   const onRemove = (product, time) => {
-    const exist = cartItems.find((x) => x.PassName === product.PassName && x.time === time);
+    if (product.PassName) {
+      const exist = cartItems.find((x) =>
+        (x.PassName === product.PassName) && x.time === time);
 
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.PassName !== product.PassName || x.time !== time));
-    } else {
-      setCartItems(
-        cartItems.map((x) =>
-          x.PassName === product.PassName && x.time === time ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
+      if (exist.qty === 1) {
+        setCartItems(cartItems.filter((x) =>
+          (x.PassName !== product.PassName) || x.time !== time));
+      } else {
+        setCartItems(
+          cartItems.map((x) =>
+            (x.PassName === product.PassName)
+              && x.time === time ? { ...exist, qty: exist.qty - 1 } : x
+          )
+        );
+      }
     }
-  }
 
+    if (product.Name) {
+      const exist = cartItems.find((x) => (x.Name === product.Name));
+
+      if (exist.qty === 1) {
+        setCartItems(cartItems.filter((x) => (x.Name !== product.Name)));
+      } else {
+        setCartItems(
+          cartItems.map((x) =>
+            (x.Name === product.Name) ? { ...exist, qty: exist.qty - 1 } : x
+          )
+        );
+      }
+    }
+
+  }
 
   return (
     <div>
@@ -49,6 +86,8 @@ const Checkout = () => {
         </Link>
         <WizardContainer
           onAdd={onAdd}
+          onRemove={onRemove}
+          hasItems={hasItems()}
         />
         <ShoppingCart
           cartItems={cartItems}

@@ -12,7 +12,7 @@ const WizardContainer = ({ onAdd, onRemove, hasItems }) => {
         <div className={WizardStyle.container}>
             <Wizard header={<WizardHeader />}>
                 <PassSelection onAdd={onAdd} onRemove={onRemove} hasItems={hasItems} />
-                <AddOns />
+                <AddOns onAdd={onAdd} onRemove={onRemove} />
                 <ContactInfo />
                 <Payment />
             </Wizard>

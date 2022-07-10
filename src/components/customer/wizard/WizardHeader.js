@@ -7,7 +7,7 @@ const WizardHeader = () => {
     return (
         <div>
             <Progress color="success" value={activeStep * progressPercentage} />
-            <h1>Step {activeStep + 1} of {stepCount}</h1>
+            <h4>Step {activeStep + 1} of {stepCount}</h4>
         </div>
     )
 }
