@@ -7,12 +7,20 @@ import ContactInfo from '../steps/ContactInfo';
 import Payment from '../steps/Payment';
 import WizardStyle from './wizard-container.module.css';
 
-const WizardContainer = ({ onAdd, onRemove, hasItems }) => {
+const WizardContainer = ({ onAdd, onRemove, hasItems, getDateFromSelection }) => {
     return (
         <div className={WizardStyle.container}>
             <Wizard header={<WizardHeader />}>
-                <PassSelection onAdd={onAdd} onRemove={onRemove} hasItems={hasItems} />
-                <AddOns onAdd={onAdd} onRemove={onRemove} />
+                <PassSelection
+                    onAdd={onAdd}
+                    onRemove={onRemove}
+                    hasItems={hasItems}
+                    getDateFromSelection={getDateFromSelection}
+                />
+                <AddOns
+                    onAdd={onAdd}
+                    onRemove={onRemove}
+                />
                 <ContactInfo />
                 <Payment />
             </Wizard>

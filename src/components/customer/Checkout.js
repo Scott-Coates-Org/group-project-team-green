@@ -8,6 +8,12 @@ import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [dateFromSelection, setDateFromSelection] = useState('');
+
+  const getDateFromSelection = (selectedDate) => {
+    setDateFromSelection(selectedDate);
+  }
+
   const hasItems = () => {
     return cartItems.length > 0;
   }
@@ -88,11 +94,13 @@ const Checkout = () => {
           onAdd={onAdd}
           onRemove={onRemove}
           hasItems={hasItems()}
+          getDateFromSelection={getDateFromSelection}
         />
         <ShoppingCart
           cartItems={cartItems}
           onAdd={onAdd}
           onRemove={onRemove}
+          dateFromSelection={dateFromSelection}
         />
       </div>
     </div>

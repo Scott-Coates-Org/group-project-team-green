@@ -6,7 +6,7 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
-import { Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
+import { Alert, ButtonGroup, ButtonToolbar } from 'reactstrap';
 
 // Demo styles, see 'Styles' section below for some notes on use.
 // import 'react-accessible-accordion/dist/fancy-example.css';
@@ -48,7 +48,7 @@ const PassPicker = ({ pickedDate, onAdd, onRemove }) => {
 
     return (
         <div>
-            <Button className='picked-date'>{pickedDate}</Button>
+            <Alert className='d-inline-block' color='primary'>{pickedDate}</Alert>
             <Accordion allowZeroExpanded allowMultipleExpanded>
                 {products.map((product) =>
                     <PassItem product={product} key={product.key} onAdd={onAdd} onRemove={onRemove} />

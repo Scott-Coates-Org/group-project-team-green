@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import WizardStyle from './wizard/wizard-container.module.css';
+import { Alert } from 'reactstrap';
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
+const ShoppingCart = ({ cartItems, onAdd, onRemove, dateFromSelection }) => {
 
   const calcTotal = (cartItems) => {
     let total = 0;
@@ -12,10 +13,10 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
     return total;
   }
 
-  const printItems = (cartItems) => {
-    let itemslist = [];
+  const displayItems = (cartItems) => {
+    let itemsList = [];
     cartItems.map((item) => {
-      itemslist.push(
+      itemsList.push(
         <div key={item.PassName ? `${item.PassName}-${item.time}` : `${item.Name}`}>
           <div>
             <div>{item.PassName ? item.PassName : item.Name}</div>
@@ -29,16 +30,27 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove }) => {
           </div>
         </div>)
     })
-    return <div>{itemslist}</div>
+    return <div>{itemsList}</div>
   }
 
   return (
     <div className={WizardStyle.cart}>
       <div>
+        <div className='cart-header'>
+          <h3>Your cart</h3>
+          <hr></hr>
+        </div>
+        <div>
+          <Alert className='d-inline-block' color="primary">
+            {dateFromSelection}
+          </Alert>
+        </div>
+
         {cartItems.length === 0 && <div>Cart is empty</div>}
-        {printItems(cartItems)}
+        {displayItems(cartItems)}
         {cartItems.length !== 0 ?
           <div>
+            <hr></hr>
             <div>Total Price</div>
             <div>${calcTotal(cartItems)}</div>
           </div>

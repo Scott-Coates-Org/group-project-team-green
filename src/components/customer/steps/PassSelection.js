@@ -6,22 +6,23 @@ import DatePicker from './DatePicker';
 import PassPicker from './PassPicker';
 
 
-const PassSelection = ({ onAdd, onRemove, hasItems }) => {
+const PassSelection = ({ onAdd, onRemove, hasItems, getDateFromSelection }) => {
   const { nextStep } = useWizard();
   const [date, setDate] = useState('');
 
   const getDate = (pickedDate) => {
     setDate(pickedDate);
+    getDateFromSelection(pickedDate);
   }
 
-  console.log('hasItems: ', hasItems);
   return (
     <div>
       {date === '' ? <DatePicker getDate={getDate} /> : null}
       {date !== '' ?
         (<div>
           <PassPicker pickedDate={date} onAdd={onAdd} onRemove={onRemove} />
-          <Button disabled={!hasItems} className={WizardStyle.next_btn} color="primary" size="lg" onClick={() => nextStep()}> Continue </Button>
+          <hr></hr>
+          <Button disabled={!hasItems} className={WizardStyle.next_btn} color="success" size="lg" onClick={() => nextStep()}> Continue </Button>
         </div>)
         : null}
     </div>

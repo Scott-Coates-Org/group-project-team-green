@@ -9,11 +9,10 @@ const Payment = () => {
   return (
     <div>
       <p>Placeholder for stripe integration</p>
-      <Button color="primary" size="lg" onClick={() => previousStep()}> Previous</Button>
-
-      <Button className={WizardStyle.next_btn} color="primary" size="lg"
+      <hr></hr>
+      <Button color="secondary" size="lg" onClick={() => previousStep()}> Previous</Button>
+      <Button className={WizardStyle.next_btn} color="success" size="lg"
         onClick={() => alert('pressed submit!')}> Submit </Button>
-
     </div>
   )
 }

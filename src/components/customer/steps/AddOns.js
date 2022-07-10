@@ -47,8 +47,9 @@ const AddOns = ({ onAdd, onRemove }) => {
                     </div>
                 </div>
             )}
-            <Button color="primary" size="lg" onClick={() => previousStep()}> Previous</Button>
-            <Button className={WizardStyle.next_btn} color="primary" size="lg" onClick={() => nextStep()}> Next </Button>
+            <hr></hr>
+            <Button color="secondary" size="lg" onClick={() => previousStep()}> Previous</Button>
+            <Button className={WizardStyle.next_btn} color="success" size="lg" onClick={() => nextStep()}> Next </Button>
         </div>
 
     )
