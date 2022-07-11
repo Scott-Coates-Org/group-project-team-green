@@ -48,6 +48,7 @@ const PassPicker = ({ pickedDate, onAdd, onRemove }) => {
 
     return (
         <div>
+            <h3>Select your passes</h3>
             <Alert className='d-inline-block' color='primary'>{pickedDate}</Alert>
             <Accordion allowZeroExpanded allowMultipleExpanded>
                 {products.map((product) =>

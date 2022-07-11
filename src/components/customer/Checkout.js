@@ -52,6 +52,7 @@ const Checkout = () => {
     if (product.PassName) {
       const exist = cartItems.find((x) =>
         (x.PassName === product.PassName) && x.time === time);
+      if (!exist) { return; }
 
       if (exist.qty === 1) {
         setCartItems(cartItems.filter((x) =>
@@ -68,6 +69,7 @@ const Checkout = () => {
 
     if (product.Name) {
       const exist = cartItems.find((x) => (x.Name === product.Name));
+      if (!exist) { return; }
 
       if (exist.qty === 1) {
         setCartItems(cartItems.filter((x) => (x.Name !== product.Name)));
@@ -79,7 +81,6 @@ const Checkout = () => {
         );
       }
     }
-
   }
 
   return (

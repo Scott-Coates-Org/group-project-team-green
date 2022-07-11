@@ -41,12 +41,14 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, dateFromSelection }) => {
           <hr></hr>
         </div>
         <div>
-          <Alert className='d-inline-block' color="primary">
-            {dateFromSelection}
-          </Alert>
+          {dateFromSelection ?
+            <Alert className='d-inline-block' color="primary">
+              {dateFromSelection}
+            </Alert>
+            : null}
         </div>
 
-        {cartItems.length === 0 && <div>Cart is empty</div>}
+        {cartItems.length === 0 && <div>Your cart is empty</div>}
         {displayItems(cartItems)}
         {cartItems.length !== 0 ?
           <div>
