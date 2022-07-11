@@ -21,10 +21,3 @@
 .next_btn {
     float: right;
 }
-
-.cart-item-wrapper {
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-}
-
-.cart-item-desc {}
