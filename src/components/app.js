@@ -73,12 +73,12 @@ function App() {
               path="/admin"
               {...props}
             />
-            <ProtectedRoute
+            <Route
               component={Checkout}
               path="/customer/checkout"
               {...props}
             />
-            <ProtectedRoute component={Home} path="/" {...props} />
+            <Route component={Home} path="/" {...props} />
           </Switch>
         </Router>
       </AuthProvider>
