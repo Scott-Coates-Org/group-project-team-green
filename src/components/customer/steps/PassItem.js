@@ -8,6 +8,7 @@ import {
 import SelectTime from './SelectTime';
 import { Button } from 'reactstrap';
 import IncDecCounter from './IncDecCounter';
+import './passpicker.css'
 
 const PassItem = ({ product, onAdd, onRemove }) => {
     const [timeVal, setTimeVal] = useState(false);
@@ -26,14 +27,14 @@ const PassItem = ({ product, onAdd, onRemove }) => {
                     : <p></p>}
                 <p className='price'>{`$${product[key].Price}.00`}</p>
                 {numSessions ?
-                    <div className='d-flex justify-content-around'>
+                    <div className='d-flex qty-btn-wrapper'>
                         <Button disabled={!timeVal} onClick={() => onRemove(product[key], timeVal)}>-</Button>
                         <Button disabled={!timeVal} onClick={() => onAdd(product[key], timeVal)}>+</Button>
                     </div>
                     :
-                    <div className='d-flex justify-content-around'>
-                        <Button onClick={() => onRemove(product[key])}>-</Button>
-                        <Button onClick={() => onAdd(product[key])}>+</Button>
+                    <div className='d-flex qty-btn-wrapper'>
+                        <Button onClick={() => onRemove(product[key], null)}>-</Button>
+                        <Button onClick={() => onAdd(product[key], null)}>+</Button>
                     </div>
                 }
             </div>)
