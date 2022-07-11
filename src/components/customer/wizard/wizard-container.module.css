@@ -13,11 +13,18 @@
 
 .cart {
     margin: 1.5rem 1rem;
-    width: 60%;
-    max-width: 300px;
+    width: 30%;
+    min-width: 400px;
     height: 70%;
 }
 
 .next_btn {
     float: right;
 }
+
+.cart-item-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.cart-item-desc {}

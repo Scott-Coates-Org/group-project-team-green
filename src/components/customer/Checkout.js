@@ -18,6 +18,11 @@ const Checkout = () => {
     return cartItems.length > 0;
   }
 
+  const removeItemFromCart = (name, time) => {
+    setCartItems(cartItems.filter((x) =>
+      ((x.Name || x.PassName) !== name) || x.time !== time));
+  }
+
   const onAdd = (product, time) => {
     if (product.PassName) {
       const exist = cartItems.find((x) => (x.PassName === product.PassName) && x.time === time);
@@ -46,8 +51,6 @@ const Checkout = () => {
         setCartItems([...cartItems, { ...product, qty: 1 }]);
       }
     }
-    console.log(product.Name, product.PassName, time);
-    console.log('cartItems', cartItems);
   }
 
   const onRemove = (product, time) => {
@@ -101,8 +104,7 @@ const Checkout = () => {
         />
         <ShoppingCart
           cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
+          removeItemFromCart={removeItemFromCart}
           dateFromSelection={dateFromSelection}
         />
       </div>

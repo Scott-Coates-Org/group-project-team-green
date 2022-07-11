@@ -1,8 +1,11 @@
 import React from 'react'
 import WizardStyle from './wizard/wizard-container.module.css';
-import { Alert } from 'reactstrap';
+import { Alert, Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import './shoppingcart.css'
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove, dateFromSelection }) => {
+const ShoppingCart = ({ cartItems, removeItemFromCart, dateFromSelection }) => {
 
   const calcTotal = (cartItems) => {
     let total = 0;
@@ -18,18 +21,21 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, dateFromSelection }) => {
     cartItems.map((item) => {
       itemsList.push(
         <div key={item.PassName ? `${item.PassName}-${item.time}` : `${item.Name}`}>
-          <div>
-            <div>{item.PassName ? item.PassName : item.Name}</div>
-            <div>{item.time ? item.time : null}</div>
-            <button onClick={() => onRemove(item, item.time)}>-</button>
-            {' '}
-            <button onClick={() => onAdd(item, item.time)}>+</button>
-          </div>
-          <div>
-            {item.qty} x ${item.Price}
+          <div className='cart-item-wrapper'>
+            <div className='cart-item-desc'>
+              {`${item.qty} x ${item.PassName || item.Name} ${item.time ? `(${item.time} 2 hours)` : ''}`}
+            </div>
+            <div className='text-right pr-2'>${item.Price}.00</div>
+            <div>
+              <Button onClick={() => removeItemFromCart(item.PassName || item.Name, item.time)}>
+                <FontAwesomeIcon icon={faTrashAlt} />
+              </Button>
+            </div>
           </div>
         </div>)
     })
+
+    console.log(cartItems);
     return <div>{itemsList}</div>
   }
 
