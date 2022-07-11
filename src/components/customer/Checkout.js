@@ -20,12 +20,12 @@ const Checkout = () => {
 
   const onAdd = (product, time) => {
     if (product.PassName) {
-      const exist = cartItems.find((x) => (x.PassName === product.PassName || x.Name === product.Name) && x.time === time);
-
+      const exist = cartItems.find((x) => (x.PassName === product.PassName) && x.time === time);
+      console.log('inside passName', exist);
       if (exist) {
         setCartItems(
           cartItems.map((x) =>
-            (x.PassName === product.PassName || x.Name === product.Name) && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
+            (x.PassName === product.PassName) && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
           )
         )
       } else {
@@ -46,6 +46,8 @@ const Checkout = () => {
         setCartItems([...cartItems, { ...product, qty: 1 }]);
       }
     }
+    console.log(product.Name, product.PassName, time);
+    console.log('cartItems', cartItems);
   }
 
   const onRemove = (product, time) => {

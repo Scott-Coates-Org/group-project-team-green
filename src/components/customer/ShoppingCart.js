@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import WizardStyle from './wizard/wizard-container.module.css';
 import { Alert } from 'reactstrap';
 
@@ -53,7 +53,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, dateFromSelection }) => {
         {cartItems.length !== 0 ?
           <div>
             <hr></hr>
-            <div>Total Price</div>
+            <div>Subtotal</div>
             <div>${calcTotal(cartItems)}</div>
           </div>
           : null}
