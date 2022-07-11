@@ -22,7 +22,7 @@ const ShoppingCart = ({ cartItems, removeItemFromCart, dateFromSelection }) => {
       itemsList.push(
         <div key={item.PassName ? `${item.PassName}-${item.time}` : `${item.Name}`}>
           <div className='cart-item-wrapper'>
-            <div className='cart-item-desc'>
+            <div>
               {`${item.qty} x ${item.PassName || item.Name} ${item.time ? `(${item.time} 2 hours)` : ''}`}
             </div>
             <div className='text-right pr-2'>${item.Price}.00</div>

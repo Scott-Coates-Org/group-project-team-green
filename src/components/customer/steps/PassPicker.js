@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeading,
-    AccordionItemButton,
-    AccordionItemPanel,
-} from 'react-accessible-accordion';
-import { Alert, ButtonGroup, ButtonToolbar } from 'reactstrap';
+import { Accordion } from 'react-accessible-accordion';
+import { Alert } from 'reactstrap';
 
 // Demo styles, see 'Styles' section below for some notes on use.
 // import 'react-accessible-accordion/dist/fancy-example.css';
 import './passpicker.css';
-import myImage from '../../../assets/images/homepage-background.png';
 import firebaseClient from '../../../firebase/client'
-import SelectTime from './SelectTime';
 import PassItem from './PassItem';
 
 const timeslots = [
