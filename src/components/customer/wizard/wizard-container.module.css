@@ -13,8 +13,8 @@
 
 .cart {
     margin: 1.5rem 1rem;
-    width: 60%;
-    max-width: 300px;
+    width: 30%;
+    min-width: 400px;
     height: 70%;
 }
 

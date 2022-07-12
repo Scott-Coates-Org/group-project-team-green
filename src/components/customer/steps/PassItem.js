@@ -7,7 +7,7 @@ import {
 } from 'react-accessible-accordion';
 import SelectTime from './SelectTime';
 import { Button } from 'reactstrap';
-import IncDecCounter from './IncDecCounter';
+import './passpicker.css'
 
 const PassItem = ({ product, onAdd, onRemove }) => {
     const [timeVal, setTimeVal] = useState(false);
@@ -16,7 +16,7 @@ const PassItem = ({ product, onAdd, onRemove }) => {
         setTimeVal(value);
     }
 
-    const createPassSelectionForm = (product, duration, timeVal) => {
+    const createPassSelectionForm = (product, duration, numSessions, timeVal) => {
         let passForm = [];
         for (let key in product) {
             passForm.push(<div key={`${product[key].PassName}-form-${key}`} className='pass-quantity-selection'>
@@ -25,14 +25,17 @@ const PassItem = ({ product, onAdd, onRemove }) => {
                     <p>2 hours</p>
                     : <p></p>}
                 <p className='price'>{`$${product[key].Price}.00`}</p>
-                {product[key].PassName === 'Unlimited Pass 7 or Older' ?
-                    <Button
-                        onClick={() => { onAdd(product[key]) }
-                        }>Add to Cart</Button>
-                    : <Button
-                        disabled={!timeVal}
-                        onClick={() => { onAdd(product[key], timeVal) }
-                        }>Add to Cart</Button>}
+                {numSessions ?
+                    <div className='d-flex qty-btn-wrapper'>
+                        <Button disabled={!timeVal} onClick={() => onRemove(product[key], timeVal)}>-</Button>
+                        <Button disabled={!timeVal} onClick={() => onAdd(product[key], timeVal)}>+</Button>
+                    </div>
+                    :
+                    <div className='d-flex qty-btn-wrapper'>
+                        <Button onClick={() => onRemove(product[key], null)}>-</Button>
+                        <Button onClick={() => onAdd(product[key], null)}>+</Button>
+                    </div>
+                }
             </div>)
         }
 
@@ -56,12 +59,12 @@ const PassItem = ({ product, onAdd, onRemove }) => {
                 <AccordionItemPanel className='accordion__panel'>
                     {product.NumberOfSessionTimes !== 0 ? (
                         <div>
-                            <p>Session Time</p>
+                            <p>Please select a session time</p>
                             <SelectTime sliceNumber={product.NumberOfSessionTimes} getTimeVal={getTimeVal}></SelectTime>
                         </div>
                     )
                         : null}
-                    {createPassSelectionForm(product.PassType, product.Duration, timeVal)}
+                    {createPassSelectionForm(product.PassType, product.Duration, product.NumberOfSessionTimes, timeVal)}
                 </AccordionItemPanel>
             </AccordionItem>
         </div>

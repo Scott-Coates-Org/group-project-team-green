@@ -18,14 +18,19 @@ const Checkout = () => {
     return cartItems.length > 0;
   }
 
+  const removeItemFromCart = (name, time) => {
+    setCartItems(cartItems.filter((x) =>
+      ((x.Name || x.PassName) !== name) || x.time !== time));
+  }
+
   const onAdd = (product, time) => {
     if (product.PassName) {
-      const exist = cartItems.find((x) => (x.PassName === product.PassName || x.Name === product.Name) && x.time === time);
-
+      const exist = cartItems.find((x) => (x.PassName === product.PassName) && x.time === time);
+      console.log('inside passName', exist);
       if (exist) {
         setCartItems(
           cartItems.map((x) =>
-            (x.PassName === product.PassName || x.Name === product.Name) && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
+            (x.PassName === product.PassName) && x.time === time ? { ...exist, qty: exist.qty + 1 } : x
           )
         )
       } else {
@@ -52,6 +57,7 @@ const Checkout = () => {
     if (product.PassName) {
       const exist = cartItems.find((x) =>
         (x.PassName === product.PassName) && x.time === time);
+      if (!exist) { return; }
 
       if (exist.qty === 1) {
         setCartItems(cartItems.filter((x) =>
@@ -68,6 +74,7 @@ const Checkout = () => {
 
     if (product.Name) {
       const exist = cartItems.find((x) => (x.Name === product.Name));
+      if (!exist) { return; }
 
       if (exist.qty === 1) {
         setCartItems(cartItems.filter((x) => (x.Name !== product.Name)));
@@ -79,7 +86,6 @@ const Checkout = () => {
         );
       }
     }
-
   }
 
   return (
@@ -98,8 +104,7 @@ const Checkout = () => {
         />
         <ShoppingCart
           cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
+          removeItemFromCart={removeItemFromCart}
           dateFromSelection={dateFromSelection}
         />
       </div>
