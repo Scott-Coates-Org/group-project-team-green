@@ -7,7 +7,6 @@ import {
 } from 'react-accessible-accordion';
 import SelectTime from './SelectTime';
 import { Button } from 'reactstrap';
-import IncDecCounter from './IncDecCounter';
 import './passpicker.css'
 
 const PassItem = ({ product, onAdd, onRemove }) => {
