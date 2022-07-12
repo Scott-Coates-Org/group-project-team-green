@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";``
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { createWidget, fetchAllWidgets, savePhoto } from "redux/widget";
 import { Link } from 'react-router-dom';
