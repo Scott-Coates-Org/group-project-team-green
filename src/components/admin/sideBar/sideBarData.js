@@ -7,6 +7,9 @@ import { TbReportAnalytics } from "react-icons/tb"
 import { RiApps2Line } from "react-icons/ri"
 import { FiSettings } from "react-icons/fi"
 
+// Add a children property array to any object if you want it to have nested
+// items, like for example in "Bookings". This will update the UI dynamically.
+
 export const sidebarItems = [
   { name: "Dashboard", icon: <AiOutlineAppstore /> },
   { name: "Inbox", icon: <BsInbox /> },
