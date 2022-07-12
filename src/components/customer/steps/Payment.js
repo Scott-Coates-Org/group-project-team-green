@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Payment = ({ cartItems, getDateFromSelection }) => {
   const { previousStep, nextStep } = useWizard();
+
   return (
     <div>
       <p>Placeholder for stripe integration</p>
