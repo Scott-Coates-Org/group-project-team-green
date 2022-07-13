@@ -130,6 +130,7 @@ const Waiver = () => {
                 return
               }
 
+              setFormValue("waiverText", WAIVER_TEXT)
               setFormValue(
                 "signatureSrc",
                 canvasRef.current.getTrimmedCanvas().toDataURL("image/svg+xml")
