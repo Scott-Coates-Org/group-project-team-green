@@ -1,5 +1,6 @@
 import React from "react"
 import { useTable } from "react-table"
+import { format as formatDate } from "date-fns"
 //import { useDispatch } from "react-redux"
 
 const Reports = () => {
@@ -11,21 +12,21 @@ const Reports = () => {
   //   dispatch()
   // }, [dispatch])
 
-  const data = React.useMemo(
-    () =>
-      [...new Array(50)].map((e) => ({
-        bookingDate: "World",
-        sessionTime: "World",
-        bookingId: "World",
-        headcount: "World",
-        amount: "World",
-        balance: "World",
-        status: "World",
-        bookingName: "World",
-        transactionDate: "World",
-      })),
-    []
-  )
+  const data = React.useMemo(() => {
+    const date = new Date()
+
+    return [...new Array(50)].map((e) => ({
+      bookingDate: formatDate(date, "dd MMMM yyyy"),
+      sessionTime: formatDate(date, "p"),
+      bookingId: <a href="#">{Math.round(Math.random() * 1000000)}</a>,
+      headcount: 1,
+      amount: Math.round(Math.random() * 100),
+      balance: Math.round(Math.random() * 1000),
+      status: Math.random() > 0.5 ? "Fully Paid" : "Pending",
+      bookingName: "James Cross",
+      transactionDate: formatDate(date, "dd MMMM yyyy p"),
+    }))
+  }, [])
 
   const columns = React.useMemo(
     () => [
