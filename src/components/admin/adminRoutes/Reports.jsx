@@ -1,7 +1,7 @@
 import React from "react"
 import { useTable, usePagination } from "react-table"
 import { format as formatDate } from "date-fns"
-import { Table } from "reactstrap"
+import { Button, Table } from "reactstrap"
 import s from "./reports.module.css"
 //import { useDispatch } from "react-redux"
 
@@ -23,46 +23,42 @@ const ReportsTable = ({
   columns,
   data,
   getData,
+  totalDataCount,
   pageCount: controlledPageCount,
 }) => {
-  // Listen for changes in pagination and use the state to fetch our new data
-
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
     page,
-    canPreviousPage,
-    canNextPage,
     pageOptions,
     pageCount,
     gotoPage,
-    nextPage,
-    previousPage,
     setPageSize,
-    // Get the state from the instance
     state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0, pageSize: 20 },
       manualPagination: true, // Tell the usePagination
       // hook that we'll handle our own data fetching
       // This means we'll also have to provide our own
       // pageCount.
+
       pageCount: controlledPageCount,
     },
     usePagination
   )
 
+  // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
     getData({ pageIndex, pageSize })
   }, [getData, pageIndex, pageSize])
 
   return (
-    <div>
+    <div className="bg-white">
       <Table size="sm" hover={true} {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -95,49 +91,38 @@ const ReportsTable = ({
           })}
         </tbody>
       </Table>
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {"<<"}
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {"<"}
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {">"}
-        </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {">>"}
-        </button>
-        <span>
-          Page
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>
-        </span>
-        <span>
-          | Go to page:
-          <input
-            type="number"
-            defaultValue={pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0
-              gotoPage(page)
-            }}
-            style={{ width: "100px" }}
-          />
-        </span>
-        <select
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
+      <div className={s["pagination-controls"]}>
+        <div>
+          {[...new Array(pageCount)].map((_, i) => (
+            <Button
+              onClick={() => gotoPage(i)}
+              color={pageIndex === i ? "primary" : "secondary"}
+            >
+              {i + 1}
+            </Button>
           ))}
-        </select>
+        </div>
+
+        <div>
+          <span>
+            {"Page "}
+            <strong>
+              {pageIndex + 1} of {pageOptions.length}
+            </strong>
+            {` (${totalDataCount} items) `}
+          </span>
+          {[20, 50, 100, 200].map((num) => (
+            <Button
+              key={num}
+              color={pageSize === num ? "primary" : "secondary"}
+              onClick={() => {
+                setPageSize(num)
+              }}
+            >
+              {num}
+            </Button>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -196,14 +181,13 @@ const Reports = () => {
   const getData = React.useCallback(({ pageSize, pageIndex }) => {
     // This will get called when the table needs new data
 
-    // Give this fetch an ID
     const fetchId = ++fetchIdRef.current
 
     // Only update the data if this is the latest fetch
     if (fetchId === fetchIdRef.current) {
       const startRow = pageSize * pageIndex
       const endRow = startRow + pageSize
-      console.log(pageSize, pageIndex)
+
       setData(storeData.slice(startRow, endRow))
 
       // total page
@@ -212,12 +196,17 @@ const Reports = () => {
   }, [])
 
   return (
-    <ReportsTable
-      columns={columns}
-      data={data}
-      getData={getData}
-      pageCount={pageCount}
-    />
+    <div className="p-4 bg-light">
+      <h2>Reports</h2>
+      <h1>Bookings</h1>
+      <ReportsTable
+        columns={columns}
+        data={data}
+        getData={getData}
+        totalDataCount={storeData.length}
+        pageCount={pageCount}
+      />
+    </div>
   )
 }
 
