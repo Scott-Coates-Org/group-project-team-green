@@ -4,12 +4,10 @@
 
 ## Team Members Roll Call
 
-
-- [X] Berke
+- [x] Berke
 - [x] Emily
 - [x] Umar
 - [x] Jennifer
-
 
 ## Sprint Progress
 
