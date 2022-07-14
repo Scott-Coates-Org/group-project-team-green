@@ -26,7 +26,7 @@ export default function Layout(props) {
           name="description"
           content="Learn how to build a personal website using Next.js"
         />
-        <title>Hopper Trampoline</title>
+        <title>Hopper Trampoline Park</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato&display=block"
