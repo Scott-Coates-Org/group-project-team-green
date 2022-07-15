@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import firebaseClient from "firebase/client"
+const stripeAPIKey= process.env.REACT_APP_STRIPE_API_SECRET_KEY;
+const stripe = require('stripe')(stripeAPIKey);
 
 const initialState = {
   data: [],

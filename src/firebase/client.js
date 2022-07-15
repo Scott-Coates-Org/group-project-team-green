@@ -12,6 +12,7 @@ const firebaseProjectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
 const firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
 const firebaseStorageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
 
+
 const options = {
     apiKey: firebaseKey,
     authDomain: firebaseAuthDomain,
