@@ -1,0 +1,7 @@
+.adminContainer {
+  display: flex;
+}
+
+.mainContainer {
+  flex: 2;
+}

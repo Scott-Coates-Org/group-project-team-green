@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: #1f1f1f;
+  color: #959595;
+  transition: all 0.5s;
+  padding: 1rem 2rem;
+}
+
+a {
+  color: rgb(210, 210, 210);
+  cursor: pointer;
+}
