@@ -59,7 +59,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
   ],
   "devDependencies": {
     "eslint-config-berkekaragoz-formatting": "^0.1.1"
