@@ -1,6 +1,7 @@
 import AllProducts from "./AllProducts"
 import Apps from "./Apps"
-import Bookings from "./Bookings"
+import AllBookings from "./AllBookings"
+import CreateRooms from "./CreateRooms"
 import Categories from "./Categories"
 import CreateAddOns from "./CreateAddOns"
 import CreateProducts from "./CreateProducts"
@@ -15,7 +16,8 @@ import Stock from "./Stock"
 export {
   AllProducts,
   Apps,
-  Bookings,
+  AllBookings,
+  CreateRooms,
   Categories,
   CreateProducts,
   CreateAddOns,

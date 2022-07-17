@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";``
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { createWidget, fetchAllWidgets, savePhoto } from "redux/widget";
 import { Link } from 'react-router-dom';
@@ -61,56 +61,56 @@ export default function Home(props) {
             <Button className={homeStyles.btn}> Buy Pass </Button>
           </Link>
           {/* <section>
-          {!isLoaded && 'Widgets loading…'}
-          {hasErrors && 'Error Loading'}
-          {isLoaded &&
-            <div>
-              <h4 className="my-3 text-center">Widgets are Loaded!</h4>
-              <Form
-                onSubmit={handleSubmit(onSubmit)}
-                className="p-3 my-3 border border-primary"
-              >
-                <FormGroup>
-                  <Label for="title">Widget Title</Label>
-                  <Input
-                    id="title"
-                    type="text"
-                    {...titleRest}
-                    innerRef={titleRef}
-                    invalid={errors.title}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="type">Widget Type</Label>
-                  <Input
-                    id="type"
-                    type="text"
-                    {...typeRest}
-                    innerRef={typeRef}
-                    invalid={errors.type}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="photo">Widget Photo</Label>
-                  <Input
-                    id="photo"
-                    type="file"
-                    accept="image/*"
-                    {...photoRest}
-                    innerRef={photoRef}
-                    invalid={errors.photo}
-                  />
-                </FormGroup>
-                <Button type="submit" color="primary">
-                  Save Widget
-                </Button>
-              </Form>
-              <pre style={{ width: "300px" }}>
-                {JSON.stringify(data, null, 2)}
-              </pre>
-            </div>
-          }
-        </section> */}
+            {!isLoaded && 'Widgets loading…'}
+            {hasErrors && 'Error Loading'}
+            {isLoaded &&
+              <div>
+                <h4 className="my-3 text-center">Widgets are Loaded!</h4>
+                <Form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="p-3 my-3 border border-primary"
+                >
+                  <FormGroup>
+                    <Label for="title">Widget Title</Label>
+                    <Input
+                      id="title"
+                      type="text"
+                      {...titleRest}
+                      innerRef={titleRef}
+                      invalid={errors.title}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="type">Widget Type</Label>
+                    <Input
+                      id="type"
+                      type="text"
+                      {...typeRest}
+                      innerRef={typeRef}
+                      invalid={errors.type}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="photo">Widget Photo</Label>
+                    <Input
+                      id="photo"
+                      type="file"
+                      accept="image/*"
+                      {...photoRest}
+                      innerRef={photoRef}
+                      invalid={errors.photo}
+                    />
+                  </FormGroup>
+                  <Button type="submit" color="primary">
+                    Save Widget
+                  </Button>
+                </Form>
+                <pre style={{ width: "300px" }}>
+                  {JSON.stringify(data, null, 2)}
+                </pre>
+              </div>
+            }
+          </section> */}
         </nav>
       </div>
     </Layout>

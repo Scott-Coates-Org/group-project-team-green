@@ -47,7 +47,7 @@ function LayoutNav(props) {
   const toggle = () => setIsOpen(!isOpen);
 
   if (!user) {
-    return <div>Not signed in ...</div>;
+    return null
   }
 
   const nav = (
