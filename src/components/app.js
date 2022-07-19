@@ -81,11 +81,7 @@ function App() {
               path="/admin"
               {...props}
             />
-            <Route
-              component={Checkout}
-              path="/customer/checkout"
-              {...props}
-            />
+            <Route component={Checkout} path="/customer/checkout" {...props} />
             <ProtectedRoute
               component={ThankYouConfirmation}
               path="/customer/confirmation"
