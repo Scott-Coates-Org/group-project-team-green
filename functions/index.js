@@ -1,12 +1,8 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and set up triggers.
 const functions = require("firebase-functions")
 const sgMail = require("@sendgrid/mail")
-const stripe = require("stripe")(
-  "sk_test_51JJJ08Pe3Sdo1GEVWaMFL9Kv9phjBr9LDQ86kyRPrcXBNX2f5gdCKYLl5bNm3j2f901CurjCxHYtxhAW8KcISC6d004C7IMudP"
-)
-sgMail.setApiKey(
-  "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"
-)
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_API_SECRET_KEY)
+sgMail.setApiKey(REACT_APP_SENDGRID_API_KEY)
 const DOMAIN = `http://${process.env.REACT_APP_FIREBASE_AUTH_DOMAIN}`
 
 exports.createCheckoutSession = functions.https.onRequest(
