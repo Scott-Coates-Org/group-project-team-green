@@ -28,7 +28,7 @@ const WAIVER_TEXT = {
     'I, the undersigned adult listed below, am at least 18 years of age. On my own behalf, and on the behalf of the below listed participants under the age of 18 ("minors"), as their parent, legal guardian or custodian, knowingly, voluntarily, and freely accept and assume any and all risks, both known and unknown, of injuries or other loss or damage that may be suffered while on the premises.',
 }
 
-const Waiver = () => {
+const Waiver = ({ onWaiverAccepted }) => {
   const canvasRef = React.useRef()
   const {
     register,
@@ -43,7 +43,7 @@ const Waiver = () => {
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+    onWaiverAccepted(data)
   }
 
   return (
