@@ -16,6 +16,13 @@ const workingHours = [
   "17:00",
 ]
 
+const customersPerHour = [
+  [25, 30, 5, 10, 15, 25, 28, 38],
+  [15, 20, 9, 7, 22, 47, 52, 65],
+  [12, 13, 2, 3, 10, 19, 28, 35],
+  [49, 91, 7, 12, 55, 78, 88, 95],
+]
+
 const Bookings = (props) => {
   const dispatch = useDispatch()
 
@@ -49,6 +56,24 @@ const Bookings = (props) => {
                 <td>
                   <img src={image} alt="Room image" className={styles.roomImage} />
                 </td>
+                {customersPerHour[index].map((numOfCustomers, index) => {
+                  return (
+                    <td
+                      key={room + capacity + numOfCustomers + index}
+                      className="m-1"
+                      style={
+                        numOfCustomers > capacity * 0.9
+                          ? { backgroundColor: "#ffa6a6" }
+                          : numOfCustomers > capacity * 0.5
+                          ? { backgroundColor: "#fed383" }
+                          : { backgroundColor: "#96ff96" }
+                      }
+                    >
+                      {numOfCustomers}
+                      <div className="mt-1">{capacity - numOfCustomers} avail.</div>
+                    </td>
+                  )
+                })}
               </tr>
             </tbody>
           )
