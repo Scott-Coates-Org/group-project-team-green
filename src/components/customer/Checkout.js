@@ -5,12 +5,13 @@ import { Button } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
-
+import firebaseClient from "firebase/client"
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([])
 
   const [dateFromSelection, setDateFromSelection] = useState("")
-import firebaseClient from "firebase/client"
+ 
+
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([])
