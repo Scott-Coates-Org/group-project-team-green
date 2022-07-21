@@ -10,6 +10,12 @@ const Checkout = () => {
   const [cartItems, setCartItems] = useState([])
 
   const [dateFromSelection, setDateFromSelection] = useState("")
+import firebaseClient from "firebase/client"
+
+const Checkout = () => {
+  const [cartItems, setCartItems] = useState([])
+  const [dateFromSelection, setDateFromSelection] = useState("")
+  const [waiverInfo, setWaiverInfo] = useState({})
 
   const getDateFromSelection = (selectedDate) => {
     setDateFromSelection(selectedDate)
@@ -100,6 +106,24 @@ const Checkout = () => {
       }
     }
   }
+
+  const onWaiverAccepted = (waiver) => {
+    setWaiverInfo(waiver)
+    process.env.NODE_ENV === "development" && console.log("waivers", waiver)
+    // TODO To be fired when payment is done
+    firebaseClient
+      .firestore()
+      .collection("waivers")
+      .doc()
+      .set({ ...waiver, bookingId: "PLACEHOLDER" })
+      .then((val) => {
+        console.log("Firebase waiver response", val)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
   return (
     <div>
       <div className="d-flex justify-content-center bg-primary">
@@ -113,6 +137,7 @@ const Checkout = () => {
           onRemove={onRemove}
           hasItems={hasItems()}
           getDateFromSelection={getDateFromSelection}
+          onWaiverAccepted={onWaiverAccepted}
         />
         <ShoppingCart
           cartItems={cartItems}
