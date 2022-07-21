@@ -8,6 +8,7 @@ import Payment from "../steps/Payment"
 import ThankYouConfirmation from "../steps/ThankYouConfirmation"
 import WizardStyle from "./wizard-container.module.css"
 import { Link } from "react-router-dom"
+import Waiver from "../steps/Waiver"
 
 const WizardContainer = ({ onAdd, onRemove, hasItems, getDateFromSelection }) => {
   return (
@@ -21,6 +22,7 @@ const WizardContainer = ({ onAdd, onRemove, hasItems, getDateFromSelection }) =>
         />
         <AddOns onAdd={onAdd} onRemove={onRemove} />
         <ContactInfo />
+        <Waiver />
         <Payment />
       </Wizard>
     </div>
