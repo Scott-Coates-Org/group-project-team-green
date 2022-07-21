@@ -89,7 +89,7 @@ const ShoppingCart = ({ cartItems, removeItemFromCart, dateFromSelection }) => {
       <Button
         href={`https://us-central1-team-green-6d418.cloudfunctions.net/createCheckoutSession?data=${myJSONData}`}
       >
-        Check Out
+        Check Out can you see me??
       </Button>
     </div>
   )

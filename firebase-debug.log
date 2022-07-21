@@ -1,0 +1,254 @@
+[debug] [2022-07-21T21:01:19.516Z] ----------------------------------------------------------------------
+[debug] [2022-07-21T21:01:19.519Z] Command:       /Users/emilymarin/.nvm/versions/node/v16.16.0/bin/node /Users/emilymarin/.nvm/versions/node/v16.16.0/bin/firebase emulators:start
+[debug] [2022-07-21T21:01:19.519Z] CLI Version:   11.2.1
+[debug] [2022-07-21T21:01:19.520Z] Platform:      darwin
+[debug] [2022-07-21T21:01:19.520Z] Node Version:  v16.16.0
+[debug] [2022-07-21T21:01:19.521Z] Time:          Thu Jul 21 2022 11:01:19 GMT-1000 (Hawaii-Aleutian Standard Time)
+[debug] [2022-07-21T21:01:19.521Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-21T21:01:19.607Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-21T21:01:19.608Z] > authorizing via signed-in user (emily.s.marin@icloud.com)
+[debug] [2022-07-21T21:01:19.691Z] java version "18.0.1.1" 2022-04-22
+
+[debug] [2022-07-21T21:01:19.692Z] Java(TM) SE Runtime Environment (build 18.0.1.1+2-6)
+Java HotSpot(TM) 64-Bit Server VM (build 18.0.1.1+2-6, mixed mode, sharing)
+
+[debug] [2022-07-21T21:01:19.697Z] Parsed Java major version: 18
+[info] i  emulators: Starting emulators: functions, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, hosting"}}
+[debug] [2022-07-21T21:01:19.731Z] [hub] writing locator at /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/hub-team-green-6d418.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, database, pubsub, storage\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-07-21T21:01:19.772Z] defaultcredentials: writing to file /Users/emilymarin/.config/firebase/emily_s.marin_icloud.com_application_default_credentials.json
+[debug] [2022-07-21T21:01:19.774Z] Setting GAC to /Users/emilymarin/.config/firebase/emily_s.marin_icloud.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/emilymarin/.config/firebase/emily_s.marin_icloud.com_application_default_credentials.json"}}
+[debug] [2022-07-21T21:01:19.778Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/adminSdkConfig [none]
+[debug] [2022-07-21T21:01:20.412Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/adminSdkConfig 200
+[debug] [2022-07-21T21:01:20.412Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/adminSdkConfig {"projectId":"team-green-6d418","storageBucket":"team-green-6d418.appspot.com","locationId":"us-central"}
+[warn] ⚠  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] ⚠  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2022-07-21T21:01:20.700Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-07-21T21:01:20.700Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-21T21:01:20.701Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/emilymarin/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.4.jar","--host","localhost","--port",8003,"--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/emilymarin/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.4.jar\",\"--host\",\"localhost\",\"--port\",8003,\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-07-21T21:01:21.799Z] Jul 21, 2022 11:01:21 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:62951
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 21, 2022 11:01:21 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:62951\n"}}
+[debug] [2022-07-21T21:01:21.828Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2022-07-21T21:01:21.829Z] localhost:8003
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8003
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"localhost:8003\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8003\n\nDev App Server is now running.\n\n"}}
+[debug] [2022-07-21T21:01:21.988Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/team-green-6d418/sites 
+[debug] [2022-07-21T21:01:22.695Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/team-green-6d418/sites 200
+[debug] [2022-07-21T21:01:22.695Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/team-green-6d418/sites {"sites":[{"name":"projects/team-green-6d418/sites/team-green-6d418","defaultUrl":"https://team-green-6d418.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-07-21T21:01:22.695Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/webApps/-/config [none]
+[debug] [2022-07-21T21:01:23.263Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/webApps/-/config 200
+[debug] [2022-07-21T21:01:23.263Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/team-green-6d418/webApps/-/config {"projectId":"team-green-6d418","appId":"1:381665104574:web:090b6dedb537dac03f04ef","storageBucket":"team-green-6d418.appspot.com","locationId":"us-central","apiKey":"AIzaSyBce4y1ijL9fDHRyCXJ7oUDHQuldncUTEQ","authDomain":"team-green-6d418.firebaseapp.com","messagingSenderId":"381665104574"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[warn] ⚠  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[debug] [2022-07-21T21:01:23.660Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-21T21:01:23.660Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-07-21T21:01:23.660Z] Starting Emulator UI with command {"binary":"node","args":["--dns-result-order=ipv4first","/Users/emilymarin/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"--dns-result-order=ipv4first\",\"/Users/emilymarin/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-07-21T21:01:23.811Z] Web / API server started at localhost:4001
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
+[info] i  functions: Watching "/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions\" for Cloud Functions..."}}
+[debug] [2022-07-21T21:01:23.931Z] Validating nodejs source
+[debug] [2022-07-21T21:01:26.011Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "0.27.2",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^9.13.0",
+    "stripe.js": "^0.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-07-21T21:01:26.011Z] Building nodejs source
+[debug] [2022-07-21T21:01:26.012Z] Analyzing nodejs backend spec
+[debug] [2022-07-21T21:01:26.015Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-07-21T21:01:26.056Z] Jul 21, 2022 11:01:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 21, 2022 11:01:26 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-21T21:01:26.124Z] Jul 21, 2022 11:01:26 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 21, 2022 11:01:26 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2022-07-21T21:01:26.293Z] Serving at port 9005
+
+[debug] [2022-07-21T21:01:26.496Z] Got response from /__/functions.yaml {"endpoints":{"createCheckoutSession":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"createCheckoutSession"},"createSuccessPage":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"createSuccessPage"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-07-21T21:01:26.511Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions[us-central1-createCheckoutSession]: http function initialized (http://localhost:5001/team-green-6d418/us-central1/createCheckoutSession). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/team-green-6d418/us-central1/createCheckoutSession)."}}
+[info] ✔  functions[us-central1-createSuccessPage]: http function initialized (http://localhost:5001/team-green-6d418/us-central1/createSuccessPage). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/team-green-6d418/us-central1/createSuccessPage)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4001                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4001/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ localhost:8003 │ http://localhost:4001/firestore │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ localhost:5000 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-07-21T21:01:28.798Z] Jul 21, 2022 11:01:28 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 21, 2022 11:01:28 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-21T21:01:40.370Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-21T21:01:40.370Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-21T21:01:40.371Z] Accepted request GET /team-green-6d418/us-central1/createCheckoutSession?data=[{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:2100,%22product_data%22:{%22name%22:%22Jumper%207%20or%20Older%22}}},{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:1200,%22product_data%22:{%22name%22:%22cheeseburger%22}}}] --> us-central1-createCheckoutSession
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-07-21T21:01:40.385Z] [worker-pool] addWorker(us-central1-createCheckoutSession) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-createCheckoutSession)"}}
+[debug] [2022-07-21T21:01:40.385Z] [worker-pool] Adding worker with key us-central1-createCheckoutSession, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-createCheckoutSession, total=1"}}
+[debug] [2022-07-21T21:01:40.385Z] [worker-pool] submitWork(triggerId=us-central1-createCheckoutSession) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-createCheckoutSession)"}}
+[debug] [2022-07-21T21:01:40.386Z] [worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: BUSY"}}
+[debug] [2022-07-21T21:01:42.014Z] [runtime-status] [25935] Functions runtime initialized. {"cwd":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions","node_version":"16.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Functions runtime initialized. {\"cwd\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions\",\"node_version\":\"16.16.0\"}"}}
+[debug] [2022-07-21T21:01:42.015Z] [runtime-status] [25935] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Disabled runtime features: undefined"}}
+[debug] [2022-07-21T21:01:42.021Z] [runtime-status] [25935] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.022Z] [runtime-status] [25935] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.023Z] [runtime-status] [25935] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-07-21T21:01:42.023Z] [runtime-status] [25935] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.067Z] [runtime-status] [25935] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-07-21T21:01:42.067Z] [runtime-status] [25935] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-07-21T21:01:42.068Z] [runtime-status] [25935] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.070Z] [runtime-status] [25935] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.071Z] [runtime-status] [25935] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:42.071Z] [runtime-status] [25935] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-07-21T21:01:42.211Z] [runtime-status] [25935] Beginning invocation function createCheckoutSession! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Beginning invocation function createCheckoutSession!"}}
+[info] i  functions: Beginning execution of "createCheckoutSession" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"Beginning execution of \"createCheckoutSession\""}}
+[debug] [2022-07-21T21:01:42.214Z] [runtime-status] [25935] Running createCheckoutSession in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Running createCheckoutSession in signature http"}}
+[debug] [2022-07-21T21:01:42.218Z] [runtime-status] [25935] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_e9fbc2dcfda667ec.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_e9fbc2dcfda667ec.sock"}}
+[debug] [2022-07-21T21:01:42.220Z] [runtime-status] [25935] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_e9fbc2dcfda667ec.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_e9fbc2dcfda667ec.sock"}}
+[debug] [2022-07-21T21:01:42.225Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-07-21T21:01:42.226Z] [functions] Got req.url=/team-green-6d418/us-central1/createCheckoutSession?data=[{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:2100,%22product_data%22:{%22name%22:%22Jumper%207%20or%20Older%22}}},{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:1200,%22product_data%22:{%22name%22:%22cheeseburger%22}}}], mapping to path=/?data=[{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:2100,%22product_data%22:{%22name%22:%22Jumper%207%20or%20Older%22}}},{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:1200,%22product_data%22:{%22name%22:%22cheeseburger%22}}}] {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/team-green-6d418/us-central1/createCheckoutSession?data=[{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:2100,%22product_data%22:{%22name%22:%22Jumper%207%20or%20Older%22}}},{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:1200,%22product_data%22:{%22name%22:%22cheeseburger%22}}}], mapping to path=/?data=[{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:2100,%22product_data%22:{%22name%22:%22Jumper%207%20or%20Older%22}}},{%22quantity%22:1,%22price_data%22:{%22currency%22:%22usd%22,%22unit_amount%22:1200,%22product_data%22:{%22name%22:%22cheeseburger%22}}}]"}}
+[debug] [2022-07-21T21:01:42.237Z] [runtime-status] [25935] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Ephemeral server handling GET request"}}
+[debug] [2022-07-21T21:01:43.489Z] [runtime-status] [25935] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"[runtime-status] [25935] Ephemeral server survived."}}
+[info] i  functions: Finished "createCheckoutSession" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createCheckoutSession"},"extension":{},"message":"Finished \"createCheckoutSession\" in ~1s"}}
+[debug] [2022-07-21T21:01:43.491Z] [worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: IDLE"}}
+[debug] [2022-07-21T21:01:43.492Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-07-21T21:01:57.592Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-21T21:01:57.592Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-21T21:01:57.592Z] Accepted request GET /team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_b1R8be7wrMmIarvMTTLbmDgshyzLX8sd3FHpnejVqAXaOaoHO2u1d5Hf69 --> us-central1-createSuccessPage
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-07-21T21:01:57.608Z] [worker-pool] addWorker(us-central1-createSuccessPage) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-createSuccessPage)"}}
+[debug] [2022-07-21T21:01:57.609Z] [worker-pool] Adding worker with key us-central1-createSuccessPage, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-createSuccessPage, total=1"}}
+[debug] [2022-07-21T21:01:57.609Z] [worker-pool] submitWork(triggerId=us-central1-createSuccessPage) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-createSuccessPage)"}}
+[debug] [2022-07-21T21:01:57.609Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: BUSY"}}
+[debug] [2022-07-21T21:01:59.475Z] [runtime-status] [25941] Functions runtime initialized. {"cwd":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions","node_version":"16.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Functions runtime initialized. {\"cwd\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions\",\"node_version\":\"16.16.0\"}"}}
+[debug] [2022-07-21T21:01:59.477Z] [runtime-status] [25941] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Disabled runtime features: undefined"}}
+[debug] [2022-07-21T21:01:59.483Z] [runtime-status] [25941] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.485Z] [runtime-status] [25941] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.486Z] [runtime-status] [25941] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-07-21T21:01:59.486Z] [runtime-status] [25941] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.547Z] [runtime-status] [25941] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-07-21T21:01:59.547Z] [runtime-status] [25941] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-07-21T21:01:59.548Z] [runtime-status] [25941] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.550Z] [runtime-status] [25941] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.550Z] [runtime-status] [25941] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-21T21:01:59.550Z] [runtime-status] [25941] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-07-21T21:01:59.694Z] [runtime-status] [25941] Beginning invocation function createSuccessPage! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Beginning invocation function createSuccessPage!"}}
+[info] i  functions: Beginning execution of "createSuccessPage" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"Beginning execution of \"createSuccessPage\""}}
+[debug] [2022-07-21T21:01:59.695Z] [runtime-status] [25941] Running createSuccessPage in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Running createSuccessPage in signature http"}}
+[debug] [2022-07-21T21:01:59.699Z] [runtime-status] [25941] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock"}}
+[debug] [2022-07-21T21:01:59.702Z] [runtime-status] [25941] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock"}}
+[debug] [2022-07-21T21:01:59.704Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-07-21T21:01:59.705Z] [functions] Got req.url=/team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_b1R8be7wrMmIarvMTTLbmDgshyzLX8sd3FHpnejVqAXaOaoHO2u1d5Hf69, mapping to path=/?session_id=cs_test_b1R8be7wrMmIarvMTTLbmDgshyzLX8sd3FHpnejVqAXaOaoHO2u1d5Hf69 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_b1R8be7wrMmIarvMTTLbmDgshyzLX8sd3FHpnejVqAXaOaoHO2u1d5Hf69, mapping to path=/?session_id=cs_test_b1R8be7wrMmIarvMTTLbmDgshyzLX8sd3FHpnejVqAXaOaoHO2u1d5Hf69"}}
+[debug] [2022-07-21T21:01:59.716Z] [runtime-status] [25941] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Ephemeral server handling GET request"}}
+[debug] [2022-07-21T21:02:00.975Z] [runtime-status] [25941] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Ephemeral server survived."}}
+[info] i  functions: Finished "createSuccessPage" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"Finished \"createSuccessPage\" in ~1s"}}
+[debug] [2022-07-21T21:02:00.979Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: IDLE"}}
+[debug] [2022-07-21T21:02:00.979Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] >  email sent {"user":"email sent","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"\u001b[90m> \u001b[39m email sent"}}
+[debug] [2022-07-21T21:10:39.962Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-21T21:10:39.962Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-21T21:10:39.962Z] Accepted request GET /team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_a1jWT1k01ahMCXA3GQQlMD3PfSvzQlzNcsiqG5EgU8N3KlxaGMr5ERLlA0 --> us-central1-createSuccessPage
+[debug] [2022-07-21T21:10:39.962Z] [worker-pool] submitWork(triggerId=us-central1-createSuccessPage) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-createSuccessPage)"}}
+[debug] [2022-07-21T21:10:39.962Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: BUSY"}}
+[debug] [2022-07-21T21:10:39.963Z] [runtime-status] [25941] Beginning invocation function createSuccessPage! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Beginning invocation function createSuccessPage!"}}
+[info] i  functions: Beginning execution of "createSuccessPage" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"Beginning execution of \"createSuccessPage\""}}
+[debug] [2022-07-21T21:10:39.964Z] [runtime-status] [25941] Running createSuccessPage in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Running createSuccessPage in signature http"}}
+[debug] [2022-07-21T21:10:39.965Z] [runtime-status] [25941] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Attempting to listen to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock"}}
+[debug] [2022-07-21T21:10:39.966Z] [runtime-status] [25941] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Listening to port: /var/folders/jr/004kk7f10838p47vrpcsp3pm0000gn/T/fire_emu_671784808eacb4fc.sock"}}
+[debug] [2022-07-21T21:10:39.970Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-07-21T21:10:39.973Z] [functions] Got req.url=/team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_a1jWT1k01ahMCXA3GQQlMD3PfSvzQlzNcsiqG5EgU8N3KlxaGMr5ERLlA0, mapping to path=/?session_id=cs_test_a1jWT1k01ahMCXA3GQQlMD3PfSvzQlzNcsiqG5EgU8N3KlxaGMr5ERLlA0 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/team-green-6d418/us-central1/createSuccessPage?session_id=cs_test_a1jWT1k01ahMCXA3GQQlMD3PfSvzQlzNcsiqG5EgU8N3KlxaGMr5ERLlA0, mapping to path=/?session_id=cs_test_a1jWT1k01ahMCXA3GQQlMD3PfSvzQlzNcsiqG5EgU8N3KlxaGMr5ERLlA0"}}
+[debug] [2022-07-21T21:10:39.979Z] [runtime-status] [25941] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Ephemeral server handling GET request"}}
+[debug] [2022-07-21T21:10:41.112Z] [runtime-status] [25941] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"[runtime-status] [25941] Ephemeral server survived."}}
+[info] i  functions: Finished "createSuccessPage" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"Finished \"createSuccessPage\" in ~1s"}}
+[debug] [2022-07-21T21:10:41.113Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: IDLE"}}
+[debug] [2022-07-21T21:10:41.113Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] >  email sent {"user":"email sent","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createSuccessPage"},"extension":{},"message":"\u001b[90m> \u001b[39m email sent"}}
+[debug] [2022-07-21T21:11:15.563Z] File /Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/emilymarin/Desktop/TeamGreen/group-project-team-green/functions/index.js changed, reloading triggers"}}
+[debug] [2022-07-21T21:11:16.568Z] [worker-pool] Shutting down IDLE worker (us-central1-createCheckoutSession) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-createCheckoutSession)"}}
+[debug] [2022-07-21T21:11:16.568Z] [worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: FINISHING"}}
+[debug] [2022-07-21T21:11:16.569Z] [worker-pool] Shutting down IDLE worker (us-central1-createSuccessPage) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-createSuccessPage)"}}
+[debug] [2022-07-21T21:11:16.569Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: FINISHING"}}
+[debug] [2022-07-21T21:11:16.571Z] Validating nodejs source
+[debug] [2022-07-21T21:11:18.735Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "0.27.2",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^9.13.0",
+    "stripe.js": "^0.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-07-21T21:11:18.735Z] Building nodejs source
+[debug] [2022-07-21T21:11:18.735Z] Analyzing nodejs backend spec
+[debug] [2022-07-21T21:11:18.736Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-07-21T21:11:18.739Z] [worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: exited"}}
+[debug] [2022-07-21T21:11:18.739Z] [worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createCheckoutSession-b87eff65-797b-40ab-a694-46a693b9894f]: FINISHED"}}
+[debug] [2022-07-21T21:11:18.739Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: exited"}}
+[debug] [2022-07-21T21:11:18.740Z] [worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createSuccessPage-64de14da-9537-4a5d-ad28-3f47a5e33f55]: FINISHED"}}
+[debug] [2022-07-21T21:11:18.996Z] Serving at port 9005
+
+[debug] [2022-07-21T21:11:19.237Z] Got response from /__/functions.yaml {"endpoints":{"createCheckoutSession":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"createCheckoutSession"},"createSuccessPage":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"createSuccessPage"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-07-21T21:11:19.251Z] shutdown requested via /__/quitquitquit
+

@@ -1,21 +1,34 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and set up triggers.
 const functions = require("firebase-functions")
 const sgMail = require("@sendgrid/mail")
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_API_SECRET_KEY)
-sgMail.setApiKey(REACT_APP_SENDGRID_API_KEY)
-const DOMAIN = `http://${process.env.REACT_APP_FIREBASE_AUTH_DOMAIN}`
+//define the stripeKey variable from the secrets file
+const stripeKey = process.env.REACT_APP_STRIPE_API_SECRET_KEY
+
+//require stripe, which is installed already
+const Stripe = require("stripe")
+//pass the stripeKey to stripe
+const stripe = new Stripe(stripeKey)
+sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+const DOMAIN = `http://team-green-6d418.web.app`
 
 exports.createCheckoutSession = functions.https.onRequest(
   async (request, response) => {
+    // response.status(200).send("ok1213123").end()
+
     const preparedLineItems = await JSON.parse(request.query.data)
+    // return response
+    //   .status(200)
+    //   .send("here is the key:" + stripeKey)
+    //   .end()
 
     const session = await stripe.checkout.sessions.create({
       line_items: preparedLineItems,
       mode: "payment",
       success_url:
-        "team-green-6d418.web.app/createSuccessPage?session_id={CHECKOUT_SESSION_ID}",
+        "https://us-central1-team-green-6d418.cloudfunctions.net/createSuccessPage?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: `${DOMAIN}/canceled`,
     })
+
     response.redirect(303, session.url)
   }
 )
