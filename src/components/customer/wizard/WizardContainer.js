@@ -10,7 +10,13 @@ import WizardStyle from "./wizard-container.module.css"
 import { Link } from "react-router-dom"
 import Waiver from "../steps/Waiver"
 
-const WizardContainer = ({ onAdd, onRemove, hasItems, getDateFromSelection }) => {
+const WizardContainer = ({
+  onAdd,
+  onRemove,
+  hasItems,
+  getDateFromSelection,
+  onWaiverAccepted,
+}) => {
   return (
     <div className={WizardStyle.container}>
       <Wizard header={<WizardHeader />}>
@@ -22,7 +28,7 @@ const WizardContainer = ({ onAdd, onRemove, hasItems, getDateFromSelection }) =>
         />
         <AddOns onAdd={onAdd} onRemove={onRemove} />
         <ContactInfo />
-        <Waiver />
+        <Waiver onWaiverAccepted={onWaiverAccepted} />
         <Payment />
       </Wizard>
     </div>
