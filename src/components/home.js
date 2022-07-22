@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 ;``
 import { Button, Form, FormGroup, Input, Label } from "reactstrap"
-import { createWidget, fetchAllWidgets, savePhoto } from "redux/widget"
+import { createWidget, fetchAllWidgets, savePhoto } from "../redux/widget"
 import { Link } from "react-router-dom"
 import Layout from "./layout"
 import logo from "../assets/images/logo_transparent.png"
@@ -11,8 +11,6 @@ import homeStyles from "../css/home.module.css"
 
 export default function Home(props) {
   const dispatch = useDispatch()
-
-  const { data, isLoaded, hasErrors } = useSelector((state) => state.widget)
 
   useEffect(() => {
     // dispatch async thunks are promises
