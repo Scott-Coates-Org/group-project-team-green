@@ -87,9 +87,10 @@ const ShoppingCart = ({ cartItems, removeItemFromCart, dateFromSelection }) => {
         ) : null}
       </div>
       <Button
+        color="success"
         href={`https://us-central1-team-green-6d418.cloudfunctions.net/createCheckoutSession?data=${myJSONData}`}
       >
-        Check Out can you see me??
+        Check Out
       </Button>
     </div>
   )
