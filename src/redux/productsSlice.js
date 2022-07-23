@@ -12,6 +12,16 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(createNewProduct.fulfilled, (state, action) => {
+        state.products = [...state.products, action.payload]
+      })
+      .addCase(createNewProduct.rejected, (state, action) => {
+        state.loadingStatus = "failed"
+        state.error = action.error.message
+      })
+  },
 })
 
 export const createNewProduct = createAsyncThunk(

@@ -1,0 +1,29 @@
+.thank-you-container {
+    border: 1px solid #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you-wrapper {
+    width: 70%;
+    align-items: center;
+
+}
+
+.check-icon {
+    width: 15%;
+    height: 15%;
+    color: green;
+}
+
+.order-item-card {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    margin: 5px;
+}
+
+.order-summary-area {
+    margin-bottom: 5%;
+}
