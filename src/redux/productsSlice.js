@@ -12,13 +12,16 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers(builder){
-    builder.addCase(createNewProduct.fulfilled, (state, action)=>{
-      state.products=[...state.products, action.payload];
-    })
-    .addCase(createNewProduct.rejected, (state, action)=> {(state.loadingStatus='failed');
-    (state.error= action.error.message)})
-  }
+  extraReducers(builder) {
+    builder
+      .addCase(createNewProduct.fulfilled, (state, action) => {
+        state.products = [...state.products, action.payload]
+      })
+      .addCase(createNewProduct.rejected, (state, action) => {
+        state.loadingStatus = "failed"
+        state.error = action.error.message
+      })
+  },
 })
 
 export const createNewProduct = createAsyncThunk(
@@ -96,7 +99,7 @@ export const savePhoto = createAsyncThunk("products/savePhoto", async (payload) 
 function _appendToFilename(filename, string) {
   var dotIndex = filename.lastIndexOf(".")
   if (dotIndex == -1) return filename + string
-  else return (filename.substring(0, dotIndex) + string + filename.substring(dotIndex))
+  else return filename.substring(0, dotIndex) + string + filename.substring(dotIndex)
 }
 
 function _updloadFile(fileName, file) {
