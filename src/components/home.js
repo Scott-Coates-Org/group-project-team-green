@@ -1,55 +1,51 @@
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";``
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { createWidget, fetchAllWidgets, savePhoto } from "redux/widget";
-import { Link } from 'react-router-dom';
-import Layout from './layout';
-import logo from '../assets/images/logo_transparent.png';
-import homeStyles from '../css/home.module.css';
-
+import { useEffect } from "react"
+import { useForm } from "react-hook-form"
+import { useDispatch, useSelector } from "react-redux"
+;``
+import { Button, Form, FormGroup, Input, Label } from "reactstrap"
+import { createWidget, fetchAllWidgets, savePhoto } from "../redux/widget"
+import { Link } from "react-router-dom"
+import Layout from "./layout"
+import logo from "../assets/images/logo_transparent.png"
+import homeStyles from "../css/home.module.css"
 
 export default function Home(props) {
-  const dispatch = useDispatch();
-
-  const { data, isLoaded, hasErrors } = useSelector((state) => state.widget);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     // dispatch async thunks are promises
     // https://redux-toolkit.js.org/api/createAsyncThunk#unwrapping-result-actions
     dispatch(createWidget({ title: "my title", type: "my type" })).then(() => {
-      dispatch(fetchAllWidgets());
-    });
-  }, [dispatch]);
+      dispatch(fetchAllWidgets())
+    })
+  }, [dispatch])
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
-  const { ref: titleRef, ...titleRest } = register("title", { required: true });
-  const { ref: typeRef, ...typeRest } = register("type", { required: true });
-  const { ref: photoRef, ...photoRest } = register("photo", { required: true });
+  } = useForm()
+  const { ref: titleRef, ...titleRest } = register("title", { required: true })
+  const { ref: typeRef, ...typeRest } = register("type", { required: true })
+  const { ref: photoRef, ...photoRest } = register("photo", { required: true })
 
   const onSubmit = (data) => {
     if (Object.keys(errors).length) {
-      alert("Error saving widget: " + JSON.stringify(errors));
+      alert("Error saving widget: " + JSON.stringify(errors))
     } else {
       dispatch(savePhoto({ file: data.photo[0] })).then((action) => {
-        console.log(data.photo[0]);
-        const photoUrl = action.payload;
+        console.log(data.photo[0])
+        const photoUrl = action.payload
         if (photoUrl) {
-          dispatch(createWidget({ title: data.title, type: data.type })).then(
-            () => {
-              reset();
-              dispatch(fetchAllWidgets());
-            }
-          );
+          dispatch(createWidget({ title: data.title, type: data.type })).then(() => {
+            reset()
+            dispatch(fetchAllWidgets())
+          })
         }
-      });
+      })
     }
-  };
+  }
 
   return (
     <Layout {...props}>
@@ -114,5 +110,5 @@ export default function Home(props) {
         </nav>
       </div>
     </Layout>
-  );
+  )
 }

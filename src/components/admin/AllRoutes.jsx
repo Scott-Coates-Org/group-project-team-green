@@ -16,7 +16,6 @@ import {
   Settings,
   Stock,
 } from "components/admin/adminRoutes"
-
 const AllRoutes = () => {
   return (
     <>

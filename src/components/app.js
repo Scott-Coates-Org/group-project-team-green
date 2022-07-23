@@ -13,6 +13,7 @@ import { Route, Router, Switch } from "react-router-dom"
 import store from "redux/store"
 import { getData, getDataSuccess } from "redux/user"
 import ErrorBoundary from "components/error-boundary"
+import CreateProductForm from "./CreateProductForm"
 import ThankYouConfirmation from "./customer/steps/ThankYouConfirmation"
 
 // DO NOT import BrowserRouter (as per tutorial). that caused router to not actually do anything.
@@ -66,6 +67,12 @@ function App() {
                 <Logout {...routeProps} {...props} firebase={firebase} />
               )}
             />
+            <Route
+              path="/add"
+              render={(routeProps) => (
+                <CreateProductForm {...routeProps} {...props} firebase={firebase} />
+              )}
+            />
 
             {/* this must be on the bottom */}
             <ProtectedRoute
@@ -74,11 +81,7 @@ function App() {
               path="/admin"
               {...props}
             />
-            <Route
-              component={Checkout}
-              path="/customer/checkout"
-              {...props}
-            />
+            <Route component={Checkout} path="/customer/checkout" {...props} />
             <ProtectedRoute
               component={ThankYouConfirmation}
               path="/customer/confirmation"
